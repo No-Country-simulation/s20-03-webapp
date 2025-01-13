@@ -1,5 +1,5 @@
-import { TestFetch } from "./components/TestFetch";
-import { TestForm } from "./components/TestForm";
+import { TestFetch } from "@/components/TestFetch";
+import { TestForm } from "@/components/TestForm";
 
 export default function HomePage() {
   return (
