@@ -3,5 +3,5 @@ export default function NotFound() {
     <>
       <h2>#404</h2>
     </>
-  );
+  )
 }
