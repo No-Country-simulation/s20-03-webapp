@@ -3,8 +3,10 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
-import { cn } from '@/lib/utils'
 import { Providers } from '@/components/providers'
+import { cn } from '@/lib/utils'
+
+import { AppSidebar } from './components/ui/app-sidebar'
 
 const poppinsSans = Poppins({
   variable: '--font-poppins-sans',

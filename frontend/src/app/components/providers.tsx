@@ -1,4 +1,11 @@
 'use client'
+
+import { SidebarProvider } from './ui/sidebar'
+
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>
+  return (
+    <>
+      <SidebarProvider>{children}</SidebarProvider>
+    </>
+  )
 }
