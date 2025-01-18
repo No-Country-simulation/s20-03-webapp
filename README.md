@@ -25,7 +25,9 @@
 </div>
 <h3 align="center">Equipo <strong>s20-03-webapp</strong></h3>
 
-_**ClassRun**_ cloven sustained taller Esgaroth wisest tonight? Mantle goblins stirs fortunes changes Mordor's. Bred slip freezes investment fortunate Giants 13! Warmth Ithildin 80 deposit rashly conjurer. Marshes upon banner hopes hearts surety Gon smote possessed. Nervous found cooking watching oncoming Faramir wisdom check is apothecary. May the blessings of Elves and Men and all Free Folk go with you. Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
+## Descripción del Proyecto: ClassRun
+
+**ClassRun** es una plataforma digital intuitiva y eficiente que transforma la gestión educativa al facilitar el seguimiento del rendimiento escolar. Diseñada para empoderar a los educadores, ClassRun ofrece herramientas que optimizan la gestión académica, mejoran la experiencia escolar y fortalecen la comunicación entre todos los miembros de la comunidad educativa. Con un enfoque en la simplicidad y la accesibilidad, ClassRun se posiciona como una solución integral que busca inspirar el aprendizaje y fomentar un entorno colaborativo y comprometido con el éxito académico.
 
 ## **Características**
 
@@ -39,22 +41,19 @@ _**ClassRun**_ cloven sustained taller Esgaroth wisest tonight? Mantle goblins s
 - **Tres:** Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
 - **Más:**
   <ul>
-    <li>Interfaz intuitiva y fácil de usar: Diseñada para facilitar el acceso a la información.</li>
+    <li>Con un diseño accesible e intuitivo, ClassRun está concebido para ser utilizado por cualquier miembro del personal educativo, sin necesidad de formación técnica previa.</li>
     <li>Accesibilidad: Disponible en múltiples dispositivos para facilitar el acceso en cualquier momento y desde cualquier lugar.</li>
   </ul>
 
 ## **Video explicativo**
 
-Explora las principales funcionalidades de <em>ClassRun</em> en este vídeo: <br>
+Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <br>
 [![Ver en Vídeo](https://img.shields.io/badge/Ver-Vídeo-white?style=for-the-badge&logo=github)](./wiki/media/video-explicativo.mp4)
 
 ## **Demo**
 
-<!-- TODO: Texto de ejemplo -->
-<!-- Visita la demostración en vivo y explora el sistema utilizando la barra de herramientas. Para personalizar el contenedor flexible, vaya a la pestaña Editar. Selecciona cualquier elemento del playground para modificar sus propiedades flex individuales. Una vez satisfecho con tu diseño, haz clic en el botón de código de la pestaña para obtener el código HTML y CSS generado. -->
-
-¡Descubre <em>ClassRun</em> en este momento! <br>
-[![Ver Salus](https://img.shields.io/badge/Ver-ClassRun-ffffff?style=for-the-badge&logo=vercel)](https://google.com)
+¡Explora <em>ClassRun</em> en este momento! <br>
+[![Ver ClassRun](https://img.shields.io/badge/Ver-ClassRun-ffffff?style=for-the-badge&logo=vercel)](https://google.com)
 
 ## **Imágenes**
 
