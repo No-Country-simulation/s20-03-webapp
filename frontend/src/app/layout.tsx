@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     { name: '(Dimaro) Juan S.', url: 'https://github.com/JuanSincich' },
     { name: '(Claudio) Claudio M.', url: 'https://github.com/ClaudioMFCDev' },
     { name: '(Nelson) Gabriel H.', url: 'https://github.com/G43R1EL' },
+    { name: '(San) Sandro B.', url: 'https://github.com/Sandrooo0' },
+    { name: '(Gared) Gared L.', url: 'https://github.com/GaredLyon' },
   ],
   creator: 'Equipo s20-03-webapp - NoCountry',
   description: '',
