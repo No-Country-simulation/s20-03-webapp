@@ -188,7 +188,7 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/nghernandez/">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
       </a>
       <a href="https://github.com/G43R1EL">
