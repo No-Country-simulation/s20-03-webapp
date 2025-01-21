@@ -1,7 +1,12 @@
+"use client"
+
+import { Login } from "#/src/app/components/molecules/login"
+
+
 export default function SignInPage() {
   return (
     <>
-      <h2>{`</SignIn> - <AuthPage>`}</h2>
+      <Login></Login>
     </>
   )
 }
