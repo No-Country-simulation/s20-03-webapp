@@ -1,7 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ProfileForm } from "./components/molecules/profil-form";
+import { useEffect, useState } from "react";
+
 export default function HomePage() {
-  return (
-    <>
-      <h2 className="text-3xl font-bold">Landing-page</h2>
-    </>
-  )
+    
 }
