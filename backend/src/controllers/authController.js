@@ -20,7 +20,6 @@ const authController = {
             role: user.role
         };
         res.cookie('token', token, { httpOnly: true });
-        res.cookie('user', JSON.stringify({ username: user.username, role: user.role }), { httpOnly: true });
         res.status(responses.common.payload().status).json(responses.common.payload(payload));
     },
     register: (req, res) => {
