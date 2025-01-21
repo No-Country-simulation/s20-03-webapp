@@ -1,4 +1,6 @@
-const Schema = mongoose.Schema;
+const config = require('../../config');
+const Schema = require('mongoose').Schema;
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
@@ -9,5 +11,33 @@ const userSchema = new Schema({
     role: { type: String, enum: ['schoolAdmin', 'teacher', 'student', 'parent'], default: 'student' },
     active: { type: Boolean, default: true },
 }, { timestamps: true });
+
+userSchema.pre('save', async function(next) {
+    if (this.isModified('password')) {
+        try {
+            const salt = await bcrypt.genSalt(config.auth.salt);
+            this.password = await bcrypt.hash(this.password, salt);
+            next();
+        } catch (error) {
+            next(error);
+        }
+    }
+});
+
+userSchema.pre('findOneAndUpdate', async function(next) {
+    if (this._update.password) {
+        try {
+            const salt = await bcrypt.genSalt(config.auth.salt);
+            this._update.password = await bcrypt.hash(this._update.password, salt);
+            next();
+        } catch (error) {
+            next(error);
+        }
+    }
+});
+
+userSchema.methods.matchPassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+};
 
 module.exports = userSchema;
