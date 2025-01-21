@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import { Section } from '@/components/atoms/section'
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +8,7 @@ import {
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { FAQs } from '@/lib/landing-constans'
+import { SectionLanding } from './section-landing'
 
 /**
  * FaqSection component.
@@ -42,7 +42,7 @@ import { FAQs } from '@/lib/landing-constans'
 
 export const FaqSection = () => {
   return (
-    <Section
+    <SectionLanding
       component="section"
       className="mx-auto flex max-w-screen-md flex-col gap-[48px] py-16 md:gap-[80px] lg:py-24"
     >
@@ -83,6 +83,6 @@ export const FaqSection = () => {
           <Link href="/contact">Contact us</Link>
         </Button>
       </div>
-    </Section>
+    </SectionLanding>
   )
 }

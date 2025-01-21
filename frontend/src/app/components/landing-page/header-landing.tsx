@@ -28,12 +28,7 @@ export const HeaderLanding = () => {
     <header className="border-b">
       <div className="flex h-16 w-full items-center justify-between px-4">
         <Link href="/" className="flex items-center">
-          <Image
-            src="/logotype.svg"
-            alt="ClassRun logo"
-            width={80}
-            height={80}
-          />
+          <Image src="/logo.svg" alt="ClassRun logo" width={120} height={120} />
         </Link>
 
         {/* Desktop Navigation */}

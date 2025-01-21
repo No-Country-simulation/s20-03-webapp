@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import { Section } from '@/components/atoms/section'
 import { Button } from '@/components/ui/button'
+import { SectionLanding } from './section-landing'
 
 /**
  * A hero section component for the landing page.
@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button'
 
 export const HeroSection = () => {
   return (
-    <Section
+    <SectionLanding
       className="flex flex-col items-center gap-8 py-8 lg:flex-row lg:gap-16"
       component={'section'}
     >
@@ -45,6 +45,6 @@ export const HeroSection = () => {
           priority
         />
       </div>
-    </Section>
+    </SectionLanding>
   )
 }
