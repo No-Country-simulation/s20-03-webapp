@@ -3,14 +3,15 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button"
 import { useEffect } from "react";
 
 function App() {
-    const ICON_COUNT = 40;
+    const ICON_COUNT = 30;
 
     const generateRandomPosition = () => ({
-        x: Math.random() * window.innerWidth - window.innerWidth / 2,
-        y: Math.random() * window.innerHeight - window.innerHeight / 2,
+        x: Math.random() * window.innerWidth - window.innerWidth / 4,
+        y: Math.random() * window.innerHeight - window.innerHeight / 100,
     });
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -23,7 +24,7 @@ function App() {
     });
 
     return (
-        <section className="bg-[#4169E1] w-full h-screen flex items-center justify-start relative z-10 overflow-hidden">
+        <section className="bg-[#4169E1] w-full h-screen flex items-center justify-center relative z-10 overflow-hidden">
             {Array.from({ length: ICON_COUNT }).map((_, index) => {
                 const initialPosition = generateRandomPosition();
 
@@ -49,44 +50,54 @@ function App() {
             })}
 
             <section className="w-full h-full flex justify-end">
+
                 <form
                     onSubmit={onSubmit}
                     className="bg-[#fcfcfcb4] h-full lg:w-[50%] backdrop-blur-md border border-white flex flex-col items-center justify-center shadow-black shadow-2xl z-50"
                 >
-                    <label htmlFor="email" className="mb-3 mt-5">Correo</label>
-                    <Input
-                        type="email"
-                        className="w-60"
-                        {...register("email", {
-                            required: { value: true, message: "correo es requerido" },
-                            pattern: {
-                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                message: "Correo inválido",
-                            },
-                        })}
-                    />
-                    {errors.email && (
-                        <span className="text-xs text-red-800">{errors.email.message}</span>
-                    )}
 
-                    <label htmlFor="password" className="mb-3 mt-5">Password</label>
-                    <Input
-                        type="password"
-                        className="w-60"
-                        {...register("password", {
-                            required: { value: true, message: "Password es requerido" },
-                        })}
-                    />
-                    {errors.password && (
-                        <span className="text-xs text-red-800">{errors.password.message}</span>
-                    )}
+                    
+                    <h1 className="text-2xl font-bold">Sing In</h1>
+                    
+                    <div className="mb-3 mt-5">
+                        <label htmlFor="email">Correo</label>
+                        <Input
+                            type="email"
+                            className="w-96 mt-2 relative"
+                            {...register("email", {
+                                required: { value: true, message: "correo es requerido" },
+                                pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: "Correo inválido",
+                                },
+                            })}
+                        />
+                        {errors.email && (
+                            <span className="text-xs text-red-800 mt-2">{errors.email.message}</span>
+                        )}
+                    </div>
 
-                    <button
-                        type="submit"
-                        className="bg-slate-950 text-white w-60 mt-5 rounded-sm py-[3px]"
-                    >
-                        Login
-                    </button>
+
+                    <div className="mb-3 mt-5">
+                        <label htmlFor="password" >Password</label>
+                        <Input
+                            type="password"
+                            className="w-96 mt-2"
+                            {...register("password", {
+                                required: { value: true, message: "Password es requerido" },
+                            })}
+                        />
+                        {errors.password && (
+                            <span className="text-xs text-red-800 mt-2">{errors.password.message}</span>
+                        )}
+
+                        <Button
+                            type="submit"
+                            className="bg-slate-950 text-white w-96 mt-10 rounded-sm py-[3px]"
+                        >
+                            Login
+                        </Button>
+                    </div>
                 </form>
             </section>
         </section>
