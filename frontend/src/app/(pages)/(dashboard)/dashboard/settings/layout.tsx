@@ -17,9 +17,9 @@ export default function SettingLayout({
         </p>
       </div>
       <Separator className="my-4" />
-      <div className="flex gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[auto_1fr]">
         <NavSettings />
-        {children}
+        <div className="w-full">{children}</div>
       </div>
     </Section>
   )
