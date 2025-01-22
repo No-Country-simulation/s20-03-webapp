@@ -5,7 +5,33 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [status, setStatus] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus("loading")
+
+    try {
+      const response = await axios.post(
+        "https://p45c4l.ngcomputers.com.ar/auth/register ",
+        {
+          username,
+          password,
+        }
+      );
+      setStatus("success");
+      console.log("Registro exitoso:", response.data);
+    } catch (error) {
+      setStatus("error");
+      console.error("Error al registrar:", error.response || error.message);
+    }
+  };
+
 export default function Layout({ children }: LayoutProps) {
+
   return (
     <>
       <AppSidebar />
