@@ -1,6 +1,7 @@
+import { Metadata } from 'next'
+
 import { Section } from '@/components/atoms/section'
 import { Separator } from '@/components/ui/separator'
-import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Apariencia',

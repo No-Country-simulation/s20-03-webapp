@@ -1,5 +1,6 @@
-import { Section } from '@/components/atoms/section'
 import { Metadata } from 'next'
+
+import { Section } from '@/components/atoms/section'
 
 export const metadata: Metadata = {
   title: 'Notificaciones',

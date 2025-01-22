@@ -1,13 +1,3 @@
-import SUBJECTS_JSON from '@/data/subjects.json'
-
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '../ui/card'
-import Link from 'next/link'
 import {
   ChevronsUpDown,
   Contact,
@@ -16,12 +6,22 @@ import {
   MoveUpRight,
   NotebookPen,
 } from 'lucide-react'
+import Link from 'next/link'
+
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '../ui/collapsible'
-import { Alert, AlertDescription, AlertTitle } from '../ui/alert'
+} from '@/components/ui/collapsible'
+import SUBJECTS_JSON from '@/data/subjects.json'
 
 interface SubjectCardProps {
   id: string

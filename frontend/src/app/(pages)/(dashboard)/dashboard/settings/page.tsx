@@ -1,8 +1,8 @@
-import { Separator } from '@/components/ui/separator'
-import { Section } from '@/components/atoms/section'
 import { Metadata } from 'next'
 
+import { Section } from '@/components/atoms/section'
 import { ProfileForm } from '@/components/organisms/profile-form'
+import { Separator } from '@/components/ui/separator'
 
 export const metadata: Metadata = {
   title: 'Configuración',

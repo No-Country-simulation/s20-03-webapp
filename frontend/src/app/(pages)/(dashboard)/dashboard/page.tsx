@@ -1,12 +1,10 @@
+import { Calendar, CircleDashed } from 'lucide-react'
 import { Metadata } from 'next'
 
 import { Section } from '@/components/atoms/section'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
-import EVENTOS_JSON from '@/data/eventos.json'
-
-import { Calendar, CircleDashed } from 'lucide-react'
 import { SummarySubjectsGrid } from '@/components/organisms/summary-subjects-grid'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import EVENTOS_JSON from '@/data/eventos.json'
 
 export const metadata: Metadata = {
   title: 'Panel de control',

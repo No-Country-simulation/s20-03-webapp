@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { FAQs } from '@/lib/landing-constans'
+
 import { SectionLanding } from './section-landing'
 
 /**

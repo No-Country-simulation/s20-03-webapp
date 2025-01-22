@@ -1,3 +1,6 @@
+import Link from 'next/link'
+
+import { Section } from '@/components/atoms/section'
 import {
   Card,
   CardContent,
@@ -5,8 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from '#/src/app/components/ui/card'
-import { Section } from '@/components/atoms/section'
-import Link from 'next/link'
 
 export default function UsersPage() {
   return (
