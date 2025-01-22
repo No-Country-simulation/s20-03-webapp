@@ -28,7 +28,16 @@ const authController = {
         }
     },
     register: async (req, res) => {
-        res.send('Register route');
+        try {
+            const { username, password, name, lastname, birthday, role, email, address, avatar} = req.body;
+            const user = await userModel.create({ username, password, name, lastname, birthday, role, email, address, avatar });
+            res.status(201).json(user);
+            // res.status(responses.common.payload().status).json(responses.common.payload(payload));
+          } catch (error) {
+            console.error(error);
+            res.status(responses.common.internalServerError).json(responses.common.internalServerError);
+          }
+        // res.send('Register route');
     }
 }
 

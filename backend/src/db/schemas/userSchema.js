@@ -9,7 +9,7 @@ const userSchema = new Schema({
     lastname: {type: String, required: true},
     birthdate: {type: Date, required: false, default: null},
     role: { type: String, enum: ['schoolAdmin', 'teacher', 'student', 'parent'], default: 'student' },
-    email: {type: Date, required: false, default: null},
+    email: {type: String, required: false, default: null},
     address: {type: String, required: false, default: null},
     avatar: { type: String, default: 'avatar.webp' },
     active: { type: Boolean, default: true },
