@@ -5,10 +5,13 @@ const bcrypt = require('bcrypt');
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    fullname: { type: String, required: true },
+    name: { type: String, required: true },
+    lastname: {type: String, required: true},
     birthdate: {type: Date, required: false, default: null},
-    avatar: { type: String, default: 'avatar.webp' },
     role: { type: String, enum: ['schoolAdmin', 'teacher', 'student', 'parent'], default: 'student' },
+    email: {type: String, required: false, default: null},
+    address: {type: String, required: false, default: null},
+    avatar: { type: String, default: 'avatar.webp' },
     active: { type: Boolean, default: true },
 }, { timestamps: true });
 
@@ -41,3 +44,6 @@ userSchema.methods.matchPassword = async function(password) {
 };
 
 module.exports = userSchema;
+
+
+
