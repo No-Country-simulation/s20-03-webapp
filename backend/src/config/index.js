@@ -1,10 +1,12 @@
-config = {
+require('dotenv').config(); // Cargar variables del archivo .env
+
+const config = {
     server: {
         port: parseInt(process.env.SERVER_PORT),
     },
     database: {
         connectionString: process.env.MONGODB_URI,
-        options: {},
+        options: {}, // Opciones adicionales si las necesitas
     },
     auth: {
         secret: process.env.SECRET_KEY,
@@ -13,7 +15,7 @@ config = {
     },
     cors: {
         origin: process.env.CORS_ORIGIN,
-        credentials: process.env.CORS_CREDENTIALS,
+        credentials: process.env.CORS_CREDENTIALS === 'true', // Convertir a booleano si es necesario
     }
 };
 

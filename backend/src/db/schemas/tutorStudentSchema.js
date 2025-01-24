@@ -5,7 +5,7 @@ const tutorStudentSchema = new Schema(
   {
     tutor: { 
       type: mongoose.Schema.Types.ObjectId, 
-      ref: 'User', 
+      ref: 'User', // El nombre del modelo definido en `userModel.js`
       required: true 
     },
     student: { 
@@ -17,4 +17,4 @@ const tutorStudentSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('TutorStudent', tutorStudentSchema);
+module.exports = tutorStudentSchema; // Exportar solo el esquema

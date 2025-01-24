@@ -1,7 +1,12 @@
+require('dotenv').config({ path: '../.env' });
 const mongoose = require('mongoose');
 const config = require('../config'); // Cargar configuración
 const User = require('../db/models/userModel'); // Modelo de usuario
 const TutorStudent = require('../db/models/tutorStudentModel'); // Modelo de la relación
+
+
+console.log('MONGODB_URI:', process.env.MONGODB_URI);
+
 
 // Conectar a la base de datos
 mongoose
@@ -51,5 +56,10 @@ const createTutorStudentRelation = async () => {
   }
 };
 
+console.log('MONGODB_URI:', process.env.MONGODB_URI);
+
+
 // Ejecutar la función
 createTutorStudentRelation();
+
+console.log('MONGODB_URI:', process.env.MONGODB_URI);
