@@ -10,6 +10,9 @@ const authController = {
             if (!user) {
                 return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
             }
+            if (!user.active) {
+                return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
+            }
             const match = await user.matchPassword(password);
             if (!match) {
                 return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
@@ -35,7 +38,7 @@ const authController = {
             // res.status(responses.common.payload().status).json(responses.common.payload(payload));
           } catch (error) {
             console.error(error);
-            res.status(responses.common.internalServerError).json(responses.common.internalServerError);
+            res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
           }
         // res.send('Register route');
     }
