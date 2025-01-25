@@ -5,7 +5,6 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { User, Star } from "lucide-react";
 
 export const CardTeacher = ({title, info, icon}) => {
     return (

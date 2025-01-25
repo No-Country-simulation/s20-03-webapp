@@ -6,11 +6,9 @@ import {
     CardTitle,
     CardFooter,
 } from "@/components/ui/card"
-import { useForm } from "react-hook-form";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button"
-
 
 export function UpdateGrades() {
     return (
@@ -22,17 +20,17 @@ export function UpdateGrades() {
             <CardContent className=" ">
                 <form>
                     <div className="mt-3">
-                        <label htmlFor="text">Name</label>
-                        <Input/>
+                        <label htmlFor="text" className="">Name</label>
+                        <Input className="mt-1"/>
                     </div>
                     <div className="mt-3">
-                        <label htmlFor="text">Subname</label>
-                        <Input/>
+                        <label htmlFor="text" className="">Subname</label>
+                        <Input className="mt-1"/>
                         
                     </div>
                     <div className="mt-3">
-                        <label htmlFor="number">Note</label>
-                        <Input/>
+                        <label htmlFor="number" className="">Note</label>
+                        <Input className="mt-1"/>
                         
                     </div>
                 </form>
