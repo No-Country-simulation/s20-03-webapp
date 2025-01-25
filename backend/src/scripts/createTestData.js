@@ -1,8 +1,11 @@
-require('dotenv').config(); // Carga las variables de entorno
+require('dotenv').config({ path: '../.env' }); //Variables de entorno
 const mongoose = require('mongoose');
-const CourseModel = require('../models/courseModel');
-const UserModel = require('../models/userModel');
-const dbConnection = require('../db/connections');
+// const CourseModel = require('../db/models/courseModel');
+// const UserModel = require('../db/models/userModel');
+// const dbConnection = require('../db/connections');
+const CourseModel = require('../db/models/courseModel');
+const UserModel = require('../db/models/userModel');
+const dbConnection = require('../db/connection');
 
 // Configuración inicial
 (async () => {
@@ -54,7 +57,7 @@ const dbConnection = require('../db/connections');
         console.log('Estudiantes creados:', [student1.username, student2.username]);
 
         // Asociar estudiantes a cursos (relación curso-estudiante)
-        const courseStudentModel = require('../models/courseStudentModel');
+        const courseStudentModel = require('../db/models/courseStudentModel');
 
         console.log('--- Inscribiendo estudiantes en los cursos ---');
         await courseStudentModel.enrollStudent(student1._id, course1._id);

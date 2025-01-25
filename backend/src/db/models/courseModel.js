@@ -10,6 +10,6 @@ const courseSchema = new Schema({
 }, { timestamps: true });
 
 // Crear y exportar el modelo de curso
-const Course = mongoose.model('Course', courseSchema);
+const CourseModel = mongoose.model('Course', courseSchema);
 
 module.exports = CourseModel;
