@@ -1,0 +1,422 @@
+[
+  {
+    "id": "dc38f864-5e91-4d43-98cc-f6464f2fd707",
+    "username": "username",
+    "name": {
+      "first": "Kiley",
+      "last": "Hahn"
+    },
+    "email": "Sharon66@example.com",
+    "role": "schoolAdmin",
+    "phone": "832.765.9808",
+    "status": true,
+    "address": {
+      "street": "478 Runolfsson Skyway",
+      "city": "Josephbury",
+      "state": "South Dakota",
+      "country": "Cape Verde",
+      "zip": "95255"
+    },
+    "avatar": "https://elementary-interject.com",
+    "birthdate": "#Sun Oct 11 1998 22:16:28 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "9745f363-7bd8-4a03-9a1e-9a9a2b374c5f",
+    "username": "username",
+    "name": {
+      "first": "Shaniya",
+      "last": "Hodkiewicz"
+    },
+    "email": "Matt.Kessler96@gmail.com",
+    "role": "teacher",
+    "phone": "601-233-4451 x6826",
+    "status": false,
+    "address": {
+      "street": "869 Daniella Terrace",
+      "city": "South Philipberg",
+      "state": "Oregon",
+      "country": "Isle of Man",
+      "zip": "90829-4012"
+    },
+    "avatar": "https://jaunty-longboat.net/",
+    "birthdate": "#Wed May 05 1993 21:27:41 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "a18d1a36-5a44-41ef-bbd6-5fe9c5b02e03",
+    "username": "username",
+    "name": {
+      "first": "Conor",
+      "last": "O'Keefe"
+    },
+    "email": "Micaela_Langosh@example.com",
+    "role": "teacher",
+    "phone": "944.343.7422 x0074",
+    "status": true,
+    "address": {
+      "street": "2504 Ebert Overpass",
+      "city": "West Libbiehaven",
+      "state": "Idaho",
+      "country": "Saint Kitts and Nevis",
+      "zip": "75490-5904"
+    },
+    "avatar": "https://prize-throne.biz",
+    "birthdate": "#Fri Aug 03 1979 09:30:54 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "73907005-b3b9-46c6-9c50-62a431681a0e",
+    "username": "username",
+    "name": {
+      "first": "Paxton",
+      "last": "Dietrich"
+    },
+    "email": "Jonathon.Dickens@gmail.com",
+    "role": "parent",
+    "phone": "1-329-856-8455 x925",
+    "status": true,
+    "address": {
+      "street": "781 Sherman Points",
+      "city": "Fort Generalside",
+      "state": "Idaho",
+      "country": "Zimbabwe",
+      "zip": "11408-9767"
+    },
+    "avatar": "https://finished-curler.biz/",
+    "birthdate": "#Fri Aug 25 1972 00:45:10 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "2ccbb354-04fe-4cc2-8904-a2b56ac47123",
+    "username": "username",
+    "name": {
+      "first": "Geraldine",
+      "last": "Quitzon"
+    },
+    "email": "Orie85@example.com",
+    "role": "parent",
+    "phone": "236-877-9014 x973",
+    "status": true,
+    "address": {
+      "street": "1880 Garrison Point",
+      "city": "Port Ottiliebury",
+      "state": "Mississippi",
+      "country": "Palau",
+      "zip": "22008"
+    },
+    "avatar": "https://relieved-desktop.net",
+    "birthdate": "#Sun Jul 27 1975 05:51:27 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "2514828d-fb8a-4036-8599-cd55922be1cd",
+    "username": "username",
+    "name": {
+      "first": "Adrain",
+      "last": "Beatty"
+    },
+    "email": "Scottie.Haag73@gmail.com",
+    "role": "schoolAdmin",
+    "phone": "588-331-5457 x381",
+    "status": true,
+    "address": {
+      "street": "7933 Park Lane",
+      "city": "Bogisichberg",
+      "state": "Ohio",
+      "country": "South Africa",
+      "zip": "21995"
+    },
+    "avatar": "https://extroverted-exit.org/",
+    "birthdate": "#Sat Sep 30 1995 02:14:08 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "0860011b-5a2c-4c2b-bf9f-79e937cd05b5",
+    "username": "username",
+    "name": {
+      "first": "Martine",
+      "last": "Jacobs"
+    },
+    "email": "Clair6@example.com",
+    "role": "teacher",
+    "phone": "618.456.8461 x6205",
+    "status": false,
+    "address": {
+      "street": "20819 Jast Pike",
+      "city": "North Broderick",
+      "state": "New York",
+      "country": "Venezuela",
+      "zip": "14115"
+    },
+    "avatar": "https://imaginative-salsa.net",
+    "birthdate": "#Fri Nov 18 1983 05:33:15 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "f6b4bd68-d666-4ea7-ae27-c4706c88a6ed",
+    "username": "username",
+    "name": {
+      "first": "Shanie",
+      "last": "Beatty"
+    },
+    "email": "Jalen.Hilll@example.com",
+    "role": "schoolAdmin",
+    "phone": "1-491-860-6265 x020",
+    "status": true,
+    "address": {
+      "street": "2168 Huel Gateway",
+      "city": "New Andersonhaven",
+      "state": "Vermont",
+      "country": "Austria",
+      "zip": "30152-1027"
+    },
+    "avatar": "https://kaleidoscopic-evolution.com",
+    "birthdate": "#Mon Jun 14 1976 10:31:49 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "632d924f-2924-4ed5-afd2-1312618900e9",
+    "username": "username",
+    "name": {
+      "first": "Anabel",
+      "last": "Russel"
+    },
+    "email": "Alexandra.McDermott@example.com",
+    "role": "schoolAdmin",
+    "phone": "(968) 717-0382 x7110",
+    "status": true,
+    "address": {
+      "street": "1159 N 1st Street",
+      "city": "Camden",
+      "state": "Connecticut",
+      "country": "Madagascar",
+      "zip": "78783-4406"
+    },
+    "avatar": "https://elaborate-mime.info",
+    "birthdate": "#Thu Apr 02 1998 01:28:35 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "a1b32463-87d5-4daa-8d4d-849a7ed6a05c",
+    "username": "username",
+    "name": {
+      "first": "Tyrique",
+      "last": "Waters"
+    },
+    "email": "Dallas.Goyette@example.com",
+    "role": "teacher",
+    "phone": "565.776.7839",
+    "status": true,
+    "address": {
+      "street": "1326 Cedar Close",
+      "city": "Berkeley",
+      "state": "Massachusetts",
+      "country": "Belize",
+      "zip": "33498-5209"
+    },
+    "avatar": "https://repentant-shelter.biz",
+    "birthdate": "#Wed Dec 07 1994 10:27:44 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "9da17ffe-a2b7-476c-b0fb-289fa14f40f1",
+    "username": "Marjolaine_Kshlerin",
+    "name": {
+      "first": "Laurine",
+      "last": "Haley"
+    },
+    "email": "Harmony.Hegmann9@gmail.com",
+    "role": "parent",
+    "phone": "(229) 882-8453 x44503",
+    "status": true,
+    "address": {
+      "street": "53591 The Ridings",
+      "city": "South Tommie",
+      "state": "Oregon",
+      "country": "Iraq",
+      "zip": "54484-6331"
+    },
+    "avatar": "https://improbable-camel.info",
+    "birthdate": "#Wed Feb 17 1988 00:13:13 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "696ed5a3-9c30-43a4-b293-05cff8b2cc0f",
+    "username": "Shemar_Bode26",
+    "name": {
+      "first": "Emilia",
+      "last": "Roob"
+    },
+    "email": "Andreanne38@example.com",
+    "role": "teacher",
+    "phone": "(346) 481-9208",
+    "status": true,
+    "address": {
+      "street": "370 Hawthorn Avenue",
+      "city": "Whittier",
+      "state": "North Carolina",
+      "country": "Montenegro",
+      "zip": "83324-9486"
+    },
+    "avatar": "https://rubbery-paragraph.org",
+    "birthdate": "#Mon Jan 15 1990 18:51:22 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "ca41cefa-b3a1-4d3c-a799-c3ed2e704e2d",
+    "username": "Jessy_Walter38",
+    "name": {
+      "first": "Margarita",
+      "last": "McLaughlin"
+    },
+    "email": "Rafael34@example.com",
+    "role": "student",
+    "phone": "852-477-3384 x977",
+    "status": true,
+    "address": {
+      "street": "8281 Abbott Spring",
+      "city": "Noblesville",
+      "state": "Arkansas",
+      "country": "Latvia",
+      "zip": "98476-2305"
+    },
+    "avatar": "https://able-lady.org/",
+    "birthdate": "#Tue Mar 27 1990 04:32:31 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "c73ea5f6-0073-4e30-a8c3-17645575eda4",
+    "username": "Arnold65",
+    "name": {
+      "first": "Everardo",
+      "last": "Rowe"
+    },
+    "email": "Norberto_Zemlak@gmail.com",
+    "role": "student",
+    "phone": "1-724-236-5085 x90905",
+    "status": true,
+    "address": {
+      "street": "828 Isai Ford",
+      "city": "New Audreychester",
+      "state": "South Carolina",
+      "country": "Kenya",
+      "zip": "37423-7717"
+    },
+    "avatar": "https://several-hour.com",
+    "birthdate": "#Mon Jun 17 1991 01:44:26 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "ef7b1137-6507-4a1e-83e8-ba7de3b8fb34",
+    "username": "Julien97",
+    "name": {
+      "first": "Ruthe",
+      "last": "Rolfson-Marvin"
+    },
+    "email": "Cathy94@gmail.com",
+    "role": "parent",
+    "phone": "903.944.7334",
+    "status": true,
+    "address": {
+      "street": "896 Dooley Valley",
+      "city": "Kautzertown",
+      "state": "Tennessee",
+      "country": "Hong Kong",
+      "zip": "31787-7182"
+    },
+    "avatar": "https://trained-postbox.name/",
+    "birthdate": "#Wed Nov 14 1984 08:56:15 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "8b852ac1-cc75-48cc-b30b-6bd285f0588a",
+    "username": "Salvatore.Kreiger",
+    "name": {
+      "first": "Josephine",
+      "last": "Flatley"
+    },
+    "email": "Emilia_Dickinson-Bahringer@gmail.com",
+    "role": "student",
+    "phone": "721.926.2125 x6432",
+    "status": true,
+    "address": {
+      "street": "312 Mae Locks",
+      "city": "Cadenville",
+      "state": "Nevada",
+      "country": "Malaysia",
+      "zip": "35533"
+    },
+    "avatar": "https://low-armadillo.com",
+    "birthdate": "#Fri Jan 02 1998 02:54:48 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "8e48c362-b214-4f62-bf4e-f7167a258062",
+    "username": "Mandy18",
+    "name": {
+      "first": "Keshaun",
+      "last": "Cassin"
+    },
+    "email": "Uriah.Feeney7@example.com",
+    "role": "parent",
+    "phone": "1-224-334-6184",
+    "status": true,
+    "address": {
+      "street": "221 Martin Luther King Drive",
+      "city": "Jannieton",
+      "state": "Oregon",
+      "country": "Vietnam",
+      "zip": "32867-7365"
+    },
+    "avatar": "https://unequaled-seabass.biz",
+    "birthdate": "#Sat Aug 23 1997 23:28:03 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "c780a045-f25c-4520-bdd3-b8d299d5be3b",
+    "username": "Eulalia31",
+    "name": {
+      "first": "Leanna",
+      "last": "Kunze"
+    },
+    "email": "Saul.Berge@gmail.com",
+    "role": "parent",
+    "phone": "680-542-9245",
+    "status": true,
+    "address": {
+      "street": "93585 Trevor Village",
+      "city": "Arlington Heights",
+      "state": "Nebraska",
+      "country": "Saint Barthelemy",
+      "zip": "72821"
+    },
+    "avatar": "https://aggressive-morphology.net/",
+    "birthdate": "#Tue Aug 16 1994 10:47:23 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "ca3607ff-481d-43a0-9e95-679f84cfc0e5",
+    "username": "Fredrick67",
+    "name": {
+      "first": "Berniece",
+      "last": "Kunde"
+    },
+    "email": "Magnolia67@gmail.com",
+    "role": "teacher",
+    "phone": "201-416-1007 x4300",
+    "status": true,
+    "address": {
+      "street": "8537 1st Avenue",
+      "city": "South Furmanfort",
+      "state": "Tennessee",
+      "country": "Papua New Guinea",
+      "zip": "58375-5093"
+    },
+    "avatar": "https://greedy-salute.net",
+    "birthdate": "#Sun Apr 18 1999 01:30:29 GMT-0400 (hora de Venezuela)"
+  },
+  {
+    "id": "8ca4b59d-860c-4e57-9c1c-9d9fac8b4eb6",
+    "username": "Jada65",
+    "name": {
+      "first": "Helene",
+      "last": "Deckow"
+    },
+    "email": "Conrad.Mraz@example.com",
+    "role": "schoolAdmin",
+    "phone": "608.595.1397 x8020",
+    "status": true,
+    "address": {
+      "street": "27833 Padberg Fort",
+      "city": "Mayerburgh",
+      "state": "North Dakota",
+      "country": "Guadeloupe",
+      "zip": "72422"
+    },
+    "avatar": "https://somber-inquiry.name/",
+    "birthdate": "#Sun Jun 13 1999 12:34:23 GMT-0400 (hora de Venezuela)"
+  }
+]

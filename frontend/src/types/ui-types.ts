@@ -1,7 +1,7 @@
 // types.ts
 
-import { ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react'
-import { LucideProps } from 'lucide-react'
+import { type LucideProps } from 'lucide-react'
+import { ForwardRefExoticComponent, ReactNode, RefAttributes } from 'react'
 
 export interface NavItem {
   title: string

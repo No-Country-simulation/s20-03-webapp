@@ -1,106 +1,31 @@
-"use client";
+import { FormSignUp } from '@/components/organisms/forms/form-sign-up'
+import { Background } from '@/components/molecules/background'
+import { Metadata } from 'next'
+import Link from 'next/link'
 
-import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button"
-import { useEffect } from "react";
-
-export default function SignUpPage() {
-    const ICON_COUNT = 10;
-
-    const generateRandomPosition = () => ({
-        x: Math.random() * window.innerWidth - window.innerWidth / 4,
-        y: Math.random() * window.innerHeight - window.innerHeight / 4,
-    });
-
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const onSubmit = handleSubmit((data) => {
-        console.log(data);
-    });
-    useEffect(() => {
-        console.log("App component mounted or updated");
-    });
-
-    return (
-        <section className="bg-[#4169E1] w-full h-screen flex items-center justify-start relative z-10 overflow-hidden">
-            {Array.from({ length: ICON_COUNT }).map((_, index) => {
-                const initialPosition = generateRandomPosition();
-
-                return (
-                    <motion.div
-                        key={index}
-                        initial={initialPosition}
-                        animate={{
-                            x: [initialPosition.x, -initialPosition.x],
-                            y: [initialPosition.y, -initialPosition.y],
-                        }}
-                        transition={{
-                            duration: 15,
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            ease: "linear",
-                        }}
-                        className="absolute"
-                    >
-                        <div className="w-20 h-20 bg-gradient-to-b via-gray-200 to-gray-400 shadow-2xl shadow-black rounded-full" />
-                    </motion.div>
-                );
-            })}
-
-            <section className="w-full h-full flex justify-end">
-
-                <form
-                    onSubmit={onSubmit}
-                    className="bg-[#fcfcfcb4] h-full lg:w-[50%] backdrop-blur-md border border-white flex flex-col items-center justify-center shadow-black shadow-2xl z-50"
-                >
-
-                    
-                    <h1 className="text-2xl font-bold">Sing Up</h1>
-                    
-                    <div className="mb-3 mt-5">
-                        <label htmlFor="email">Correo</label>
-                        <Input
-                            type="email"
-                            className="w-96 mt-2 relative"
-                            {...register("email", {
-                                required: { value: true, message: "correo es requerido" },
-                                pattern: {
-                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                    message: "Correo inválido",
-                                },
-                            })}
-                        />
-                        {errors.email && (
-                            <span className="text-xs text-red-800 mt-2">{errors.email.message as string}</span>
-                        )}
-                    </div>
-
-
-                    <div className="mb-3 mt-5">
-                        <label htmlFor="password" >Password</label>
-                        <Input
-                            type="password"
-                            className="w-96 mt-2"
-                            {...register("password", {
-                                required: { value: true, message: "Password es requerido" },
-                            })}
-                        />
-                        {errors.password && (
-                            <span className="text-xs text-red-800">{errors.password.message as string}</span>
-                        )}
-
-                    </div>
-                        <Button
-                            type="submit"
-                            className="bg-slate-950 text-white w-96 mt-10 rounded-sm py-[3px]"
-                        >
-                            Login
-                        </Button>
-                </form>
-            </section>
-        </section>
-    );
+export const metadata: Metadata = {
+  title: 'Registrarse',
+  // description: ""
 }
 
+export default function SignUpPage() {
+  return (
+    <Background>
+      <div className="flex h-full w-full flex-col items-center justify-center gap-8 bg-white p-8 backdrop-blur-md lg:w-1/2">
+        <div className="flex flex-col gap-2 text-center">
+          <h1 className="text-3xl font-bold">Registrarse</h1>
+          <h2 className="text-md text-muted-foreground">
+            Ingresa tus datos para registrarte
+          </h2>
+        </div>
+        <FormSignUp />
+        <div className="flex gap-2 text-center text-sm">
+          <span className="text-muted-foreground">¿Ya tienes una cuenta?</span>
+          <Link href="/sign-in" className="hover:underline">
+            ¡Inicia sesión!
+          </Link>
+        </div>
+      </div>
+    </Background>
+  )
+}

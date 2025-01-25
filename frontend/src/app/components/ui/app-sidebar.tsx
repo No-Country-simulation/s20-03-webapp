@@ -1,14 +1,5 @@
 'use client'
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  useSidebar,
-} from '@/components/ui/sidebar'
-
-import { DropDownUser } from '@/components/molecules/dropdown-user'
-import {
   Archive,
   Bell,
   BookOpenCheck,
@@ -17,8 +8,17 @@ import {
   Settings,
   Users,
 } from 'lucide-react'
-import { NavGroup } from '@/components/organisms/nav-group'
 import Image from 'next/image'
+
+import { DropDownUser } from '@/components/molecules/dropdown-user'
+import { NavGroup } from '@/components/organisms/nav-group'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  useSidebar,
+} from '@/components/ui/sidebar'
 
 const navGroups = [
   {
