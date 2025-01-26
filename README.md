@@ -1,22 +1,22 @@
 <div align="center">
-  <img src="./media/banner.png" alt="Banner">
+  <img src="./assets/banner.png" alt="Banner">
   <details align="left">
     <summary>Tabla de contenidos</summary>
     <ul>
-      <li><a href="#-características">Características</a></li>
-      <li><a href="#-video-explicativo">Video explicativo</a></li>
-      <li><a href="#-demo">Demo</a></li>
-      <li><a href="#-imágenes">Imágenes</a></li>
-      <li><a href="#-tecnologías">Tecnologías</a></li>
-      <li><a href="#-contribución">¿Cómo contribuir?</a></li>
-      <li><a href="#-licencia">Licencia</a></li>
-      <li><a href="#-feedback">Feedback</a></li>
-      <li><a href="#-futuras-mejoras">Futuras mejoras</a></li>
+      <li><a href="#características">Características</a></li>
+      <li><a href="#video-explicativo">Video explicativo</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#imágenes">Imágenes</a></li>
+      <li><a href="#tecnologías">Tecnologías</a></li>
+      <li><a href="#contribución">¿Cómo contribuir?</a></li>
+      <!-- <li><a href="#-licencia">Licencia</a></li> -->
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#futuras-mejoras">Futuras mejoras</a></li>
       <!-- Equipo -->
       <li>
         <a href="#equipo">Equipo</a>
         <ul>
-          <li><a href="#-integrantes">Integrantes</a></li>
+          <li><a href="#integrantes-principales">Integrantes</a></li>
           <!-- <li><a href="#contribuyentes">Contribuyentes</a></li> -->
         </ul>
     </li>
@@ -29,19 +29,19 @@
 
 ## **Características**
 
-- **Uno:** Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
-- **Dos:** Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
-    <ul>
-    <li>Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.</li>
-    <li>Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.</li>
-    <li>Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.</li>
-    </ul>
-- **Tres:** Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
-- **Más:**
-  <ul>
-    <li>Con un diseño accesible e intuitivo, ClassRun está concebido para ser utilizado por cualquier miembro del personal educativo, sin necesidad de formación técnica previa.</li>
-    <li>Accesibilidad: Disponible en múltiples dispositivos para facilitar el acceso en cualquier momento y desde cualquier lugar.</li>
-  </ul>
+- **👁‍🗨 Gestionar usuarios:**
+  - Facilita la admisión y el registro de estudiantes a través de un sistema centralizado que automatiza flujos de trabajo y permite un seguimiento eficaz de las solicitudes.
+- **✍🏻 Seguimiento y Evaluación Educativa:**
+  - Centraliza todos los datos académicos del alumno, incluyendo notas y evaluaciones, permitiendo un seguimiento detallado del rendimiento
+  - Permite crear y calificar tareas y exámenes directamente en la plataforma, con resultados informados automáticamente en las boletas
+  - Produce informes académicos listos para ser compartidos con las familias.
+    
+- **🔔 Notificaciones:** 
+  - Permite a los usuarios recibir notificaciones sobre eventos importantes, cambios en el horario o actividades escolares
+- **🎁 Más:**
+  - Diseño accesible e intuitivo, ClassRun está concebido para ser utilizado por cualquier miembro del personal educativo, sin necesidad de formación técnica previa.
+  - Accesibilidad: Disponible en múltiples dispositivos para facilitar el acceso en cualquier momento y desde cualquier lugar.
+  
 
 ## **Video explicativo**
 
@@ -82,7 +82,7 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ### Frontend
 
-![Next.js][Next.js]![React.js][React.js]![TypeScript][TypeScript]![TailwindCSS][TailwindCSS]![Shadcn/ui][Shadcn/ui]![Axios][Axios]![ReactHookForm][ReactHookForm]![ESLint][ESLint]![Prettier][Prettier]
+![Next.js][Next.js]![React.js][React.js]![TypeScript][TypeScript]![TailwindCSS][TailwindCSS]![Shadcn/ui][Shadcn/ui]![Axios][Axios]![ReactHookForm][ReactHookForm]![Zod][Zod]![ESLint][ESLint]![Prettier][Prettier]
 
 ## **Contribución**
 
@@ -115,7 +115,7 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 
 <div align="center">
   <h2 style="font-size: 48px;">Equipo</h2>
-  <img src="./web/public/logo.svg" width="800px" alt="Logo">
+  <img src="./frontend/public/logo-negative.svg" width="800px" alt="Logo">
 </div>
 
 <h3 align="center"><strong>Integrantes principales</strong></h3>
@@ -205,26 +205,15 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
     </td>
   </tr>
   <tr>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/99148932?v=4" width="100"></td>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/73199952?v=4" width="100"></td>
   </tr>
   <tr>
-    <td align="center"><strong>Gared L.</strong></td>
     <td align="center"><strong>Adriana S.</strong></td>
   </tr>
   <tr>
-    <td align="center">Product Manager</td>
     <td align="center">Team Leader</td>
   </tr>
   <tr>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/gared-lyon/">
-        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
-      </a>
-      <a href="https://github.com/GaredLyon">
-        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
-      </a>
-    </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/adriana-sanchez-mejias/">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
@@ -276,6 +265,7 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 [Axios]: https://img.shields.io/static/v1?style=for-the-badge&message=Axios&color=5A29E4&logo=Axios&logoColor=FFFFFF&label=
 [ESLint]: https://img.shields.io/badge/eslint-4b32c3?style=for-the-badge&logo=eslint&logoColor=white
 [Prettier]: https://img.shields.io/badge/prettier-f7b93e?style=for-the-badge&logo=prettier&logoColor=white
+[Zod]: https://img.shields.io/badge/Zod_3-3E67B1?style=for-the-badge&logo=zod&logoColor=white
 
 <!-- Back-End - Badges -->
 
