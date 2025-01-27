@@ -7,6 +7,7 @@ const userSchema = new Schema({
     password: { type: String, required: true },
     name: { type: String, required: true },
     lastname: {type: String, required: true},
+    dni: {type: String, required:false, default: null},
     birthdate: {type: Date, required: false, default: null},
     role: { type: String, enum: ['schoolAdmin', 'teacher', 'student', 'parent'], default: 'student' },
     email: {type: String, required: false, default: null},
