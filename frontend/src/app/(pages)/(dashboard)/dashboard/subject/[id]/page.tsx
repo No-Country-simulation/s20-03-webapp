@@ -1,11 +1,10 @@
-import EXAMS_JSON from '@/data/exams.json'
-
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Section } from '@/components/atoms/section'
-import { type Exam } from '@/types/exams'
+import { ExamCard } from '@/components/molecules/cards/exam-card'
 import { SubjectCard } from '@/components/molecules/cards/subject-card'
 import { PendingEvents } from '@/components/organisms/pending-events'
-import { ExamCard } from '@/components/molecules/cards/exam-card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import EXAMS_JSON from '@/data/exams.json'
+import { type Exam } from '@/types/exams'
 
 async function getData(): Promise<Exam[]> {
   return JSON.parse(JSON.stringify(EXAMS_JSON))

@@ -1,12 +1,4 @@
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-
-import {
   ChevronsUpDown,
   Contact,
   MapPin,
@@ -15,6 +7,13 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import {
   Collapsible,
   CollapsibleContent,
@@ -76,7 +75,7 @@ export const SubjectCard = ({
           </CollapsibleTrigger>
           <CollapsibleContent>
             <div className="flex gap-2">
-              {new Array(5)
+              {Array.from({ length: 5 })
                 .fill(undefined)
                 .map((_, index) => index + 1)
                 .map(index => (

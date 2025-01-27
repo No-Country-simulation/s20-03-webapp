@@ -1,6 +1,6 @@
 import { Calendar, CircleDashed } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import EVENTOS_JSON from '@/data/eventos.json'
 
 export const PendingEvents = () => {

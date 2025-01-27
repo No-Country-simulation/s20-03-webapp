@@ -1,4 +1,5 @@
-import { capitalize } from '@/lib/utils'
+import { Calendar, NotepadText, User, Users } from 'lucide-react'
+
 import {
   Card,
   CardContent,
@@ -6,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Calendar, NotepadText, User, Users } from 'lucide-react'
+import { capitalize } from '@/lib/utils'
 
 interface ExamCardProps {
   title: string

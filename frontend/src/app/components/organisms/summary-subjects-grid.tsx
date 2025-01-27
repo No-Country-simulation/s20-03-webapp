@@ -1,3 +1,5 @@
+import { RandomTipAlert } from '@/components/atoms/random-tip-alert'
+import { SubjectCard } from '@/components/molecules/cards/subject-card'
 import {
   Card,
   CardContent,
@@ -5,10 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-
 import SUBJECTS_JSON from '@/data/subjects.json'
-import { RandomTipAlert } from '@/components/atoms/random-tip-alert'
-import { SubjectCard } from '@/components/molecules/cards/subject-card'
 
 export const SummarySubjectsGrid = () => {
   return (

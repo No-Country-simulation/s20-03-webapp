@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 import { Section } from '@/components/atoms/section'
-import { SummarySubjectsGrid } from '@/components/organisms/summary-subjects-grid'
 import { PendingEvents } from '@/components/organisms/pending-events'
+import { SummarySubjectsGrid } from '@/components/organisms/summary-subjects-grid'
 
 export const metadata: Metadata = {
   title: 'Panel de control',

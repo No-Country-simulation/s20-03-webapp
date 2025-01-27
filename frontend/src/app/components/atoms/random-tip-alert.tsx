@@ -1,7 +1,8 @@
-import React from 'react'
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
-import { STUDY_TIPS } from '@/lib/constants'
 import { Lightbulb } from 'lucide-react'
+import React from 'react'
+
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { STUDY_TIPS } from '@/lib/constants'
 
 export const RandomTipAlert = () => {
   const randomTip = React.useMemo(() => {
