@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { TESTIMONIALS } from '@/lib/landing-constans'
 
 import { SectionLanding } from './section-landing'
@@ -37,10 +39,12 @@ export const TestimonialsSection = () => {
             className="flex flex-col items-center justify-center gap-2 text-center"
           >
             <p className="mb-4 font-semibold italic">{testimony.review}</p>
-            <img
+            <Image
               src={testimony.image}
               alt={`Image of ${testimony.name}`}
               className="h-20 w-20 rounded-full"
+              width={80}
+              height={80}
             />
             <h4 className="text-md font-bold">{testimony.name}</h4>
             <p>{testimony.position}</p>

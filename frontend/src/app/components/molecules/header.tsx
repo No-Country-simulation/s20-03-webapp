@@ -1,8 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react'
+
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
+import { cn } from '@/lib/utils'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   fixed?: boolean

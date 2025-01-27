@@ -1,8 +1,10 @@
+/* eslint-disable unicorn/prefer-structured-clone */
 import { Section } from '@/components/atoms/section'
 import USERS_JSON from '@/data/users.json'
 import { User } from '#/src/types/user-type'
-import { DataTable } from './data-table'
+
 import { columns } from './columns'
+import { DataTable } from './data-table'
 
 async function getData(): Promise<User[]> {
   return JSON.parse(JSON.stringify(USERS_JSON))

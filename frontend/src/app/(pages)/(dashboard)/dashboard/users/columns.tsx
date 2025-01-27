@@ -1,7 +1,9 @@
 'use client'
 
-import { Badge } from '#/src/app/components/ui/badge'
-import { Button } from '#/src/app/components/ui/button'
+import { type ColumnDef } from '@tanstack/react-table'
+import { MoreHorizontal, Pencil, Trash } from 'lucide-react'
+import Link from 'next/link'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,11 +11,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { User } from '#/src/types/user-type'
-import { ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontal, Pencil, Trash } from 'lucide-react'
+import { Badge } from '#/src/app/components/ui/badge'
+import { Button } from '#/src/app/components/ui/button'
 import { Checkbox } from '#/src/app/components/ui/checkbox'
-import Link from 'next/link'
+import { User } from '#/src/types/user-type'
 
 export const columns: ColumnDef<User>[] = [
   {

@@ -1,9 +1,9 @@
 import {
-  HeroSection,
-  ServicesSection,
-  HeaderLanding,
   FaqSection,
   FooterLanding,
+  HeaderLanding,
+  HeroSection,
+  ServicesSection,
   TestimonialsSection,
 } from '@/components/landing-page'
 

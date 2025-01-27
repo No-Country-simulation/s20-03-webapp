@@ -1,6 +1,7 @@
-import { HEADER_LINKS } from '@/lib/landing-constans'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { HEADER_LINKS } from '@/lib/landing-constans'
 
 const SOCIAL_MEDIA = [
   {
