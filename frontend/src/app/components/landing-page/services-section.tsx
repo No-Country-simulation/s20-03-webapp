@@ -28,7 +28,7 @@ export const ServicesSection = () => {
             className="flex flex-col items-center justify-center gap-4 text-center md:gap-6"
           >
             <service.icon className="h-12 w-12" />
-            <h4 className="text-lg font-bold">{service.title}</h4>
+            <h4 className="text-md font-bold">{service.title}</h4>
             <p>{service.description}</p>
           </div>
         ))}

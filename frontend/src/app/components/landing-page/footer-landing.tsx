@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const Footer = () => {
+export const FooterLanding = () => {
   return (
     <footer className="w-full border-t px-4 py-4">
       <div className="flex h-16 w-full items-center justify-between px-4">
