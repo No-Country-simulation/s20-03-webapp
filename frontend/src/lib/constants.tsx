@@ -3,6 +3,7 @@ import {
   Bell,
   BookOpenCheck,
   CircleHelp,
+  Hammer,
   LayoutDashboard,
   Settings,
   Users,
@@ -21,6 +22,16 @@ export const navGroups = [
         title: 'Notificaciones',
         icon: Bell,
         url: '/dashboard/notifications',
+      },
+    ],
+  },
+  {
+    title: 'Páginas temporales',
+    items: [
+      {
+        title: 'Dialogs',
+        icon: Hammer,
+        url: '/dashboard/dialogs',
       },
     ],
   },
