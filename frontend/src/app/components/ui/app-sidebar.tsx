@@ -1,54 +1,36 @@
 'use client'
-import { ChevronsUpDown, Home, User2 } from 'lucide-react'
+
 import Image from 'next/image'
 
+import { DropDownUser } from '@/components/molecules/dropdown-user'
+import { NavGroup } from '@/components/organisms/nav-group'
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import { navGroups } from '@/lib/constants'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from './dropdown-menu'
-
-const items = [
-  {
-    title: 'Comisiones',
-    url: '#',
-    icon: Home,
-  },
-]
-
-export function AppSidebar() {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { open } = useSidebar()
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" variant="floating" {...props}>
       <SidebarHeader className="flex">
         {open ? (
           <Image
-            src="/logotype.svg"
-            alt="ClassRun logo"
+            src="/logo.svg"
+            alt="Logo de ClassRun"
             width={160}
             height={200}
             className="h-16 max-h-16 self-start"
           />
         ) : (
           <Image
-            src="/logo.svg"
-            alt="ClassRun logo"
+            src="/isotype.svg"
+            alt="Isotipo de ClassRun"
             width={80}
             height={80}
             className="h-6 w-6 self-center"
@@ -56,53 +38,18 @@ export function AppSidebar() {
         )}
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Aplicación</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map(item => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        {navGroups.map((items, index) => (
+          <NavGroup key={index} {...items} />
+        ))}
       </SidebarContent>
-
       <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton className="flex h-auto gap-4">
-                  <User2 />
-                  <div className="flex flex-col">
-                    <span className="font-bold">John Doe</span>
-                    <span className="text-xs">class@run.com</span>
-                  </div>
-                  <ChevronsUpDown className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                side="top"
-                className="w-[--radix-popper-anchor-width]"
-              >
-                <DropdownMenuItem>
-                  <span>Perfil</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Cerrar sesión</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <DropDownUser
+          user={{
+            name: 'John Doe',
+            email: 'email@example.com',
+            avatar: '/avatar.jpg',
+          }}
+        />
       </SidebarFooter>
     </Sidebar>
   )

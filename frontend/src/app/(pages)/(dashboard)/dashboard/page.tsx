@@ -1,21 +1,18 @@
 import { Metadata } from 'next'
 
 import { Section } from '@/components/atoms/section'
+import { PendingEvents } from '@/components/organisms/pending-events'
+import { SummarySubjectsGrid } from '@/components/organisms/summary-subjects-grid'
 
 export const metadata: Metadata = {
-  title: 'Dashboard',
+  title: 'Panel de control',
 }
 
 export default function DashboardPage() {
   return (
-    <Section className="flex w-full flex-col">
-      <h2>{`</DashboardPage>`}</h2>
-      <div className="flex w-full flex-nowrap">
-        <div className="w-full bg-green-500">green</div>
-        <div className="w-full bg-yellow-500">yellow</div>
-        <div className="w-full bg-gray-500">gray</div>
-        <div className="w-full bg-black/50">black</div>
-      </div>
+    <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <SummarySubjectsGrid />
+      <PendingEvents />
     </Section>
   )
 }
