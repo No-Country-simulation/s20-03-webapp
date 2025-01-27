@@ -11,7 +11,7 @@ import { HEADER_LINKS } from '@/lib/landing-constans'
 const AuthButtons = () => {
   return (
     <>
-      <Button variant="ghost" size="sm" asChild>
+      <Button variant="outline" size="sm" asChild>
         <Link href="/sign-in">Iniciar sesión</Link>
       </Button>
       <Button size="sm" asChild>
@@ -20,6 +20,16 @@ const AuthButtons = () => {
     </>
   )
 }
+
+/**
+ * A header component for the landing page.
+ *
+ * This component renders a header with the ClassRun logo on the left, and a
+ * navigation menu and CTA buttons on the right. On smaller screens, the
+ * navigation menu and CTA buttons are hidden, and a mobile menu button is
+ * displayed instead. When the mobile menu button is clicked, the navigation
+ * menu and CTA buttons are displayed below the header.
+ */
 
 export const HeaderLanding = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
