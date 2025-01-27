@@ -5,28 +5,27 @@ const roleMiddleware = async (req, res, next) => {
     const { role } = req.user;
     switch (route) {
         case 'manager':
-            if (role !== 'manager') {
-                return res.status(responses.auth.forbidden.status).json(responses.auth.forbidden);
-            };
-            return next();
+            if (role === 'manager') {
+                return next();
+            }
+            break;
         case 'teacher':
-            if (role !== 'teacher') {
-                return res.status(responses.auth.forbidden.status).json(responses.auth.forbidden);
-            };
-            return next();
+            if (role === 'teacher') {
+                return next();
+            }
+            break;
         case 'student':
-            if (role !== 'student') {
-                return res.status(responses.auth.forbidden.status).json(responses.auth.forbidden);
-            };
-            return next();
+            if (role === 'student') {
+                return next();
+            }
+            break;
         case 'parent':
-            if (role !== 'parent') {
-                return res.status(responses.auth.forbidden.status).json(responses.auth.forbidden);
-            };
-            return next();
-        default:
-            return res.status(responses.common.notImplemented.status).json(responses.common.notImplemented);
-    };
+            if (role === 'parent') {
+                return next();
+            }
+            break;
+    }
+    return res.status(responses.auth.forbidden.status).json(responses.auth.forbidden);
 };
 
 module.exports = roleMiddleware;

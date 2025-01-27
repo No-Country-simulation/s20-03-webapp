@@ -3,7 +3,7 @@ config = {
         port: parseInt(process.env.SERVER_PORT),
     },
     database: {
-        connectionString: process.env.MONGODB_URI,
+        connectionString: process.env.MONGODB_LOCAL_URI,
         options: {},
     },
     auth: {

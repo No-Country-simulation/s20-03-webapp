@@ -8,6 +8,7 @@ const responses = {
                 payload
             };
         },
+        noContent: { status: 204, message: 'No Content' },
         notFound: { status: 404, message: 'Not Found' },
         badRequest: { status: 400, message: 'Bad Request' },
         internalServerError: { status: 500, message: 'Internal Server Error' },

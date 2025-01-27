@@ -44,6 +44,3 @@ userSchema.methods.matchPassword = async function(password) {
 };
 
 module.exports = userSchema;
-
-
-
