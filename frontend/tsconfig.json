@@ -22,12 +22,8 @@
       "#/*": ["./*"],
       "@/*": ["./src/*"],
       "@/components/*": ["./src/app/components/*"],
-      "@/hooks/*": ["./src/app/hooks/*"],
-      "@/utils/*": ["./src/app/utils/*"],
-      "@/stores/*": ["./src/app/stores/*"],
-      "@/types/*": ["./src/app/types/*"],
-      "@/services/*": ["./src/app/services/*"],
-      "@/styles/*": ["./src/app/styles/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/types/*": ["./src/types/*"],
       "@/lib/*": ["./src/lib/*"]
     }
   },
