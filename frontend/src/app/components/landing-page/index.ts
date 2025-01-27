@@ -1,0 +1,7 @@
+export * from './faq-section'
+export * from './footer-landing'
+export * from './header-landing'
+export * from './hero-section'
+export * from './section-landing'
+export * from './services-section'
+export * from './testimonials-section'

@@ -1,16 +1,16 @@
 export interface User {
   id: string
-  username: string
   name: Name
   email: string
   role: UserRole
-  status: boolean
+  status: UserStatus
   phone: string
   address: Address
   avatar: string
   birthdate: string
 }
 export type UserRole = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
+export type UserStatus = 'active' | 'inactive'
 
 export interface Address {
   street: string

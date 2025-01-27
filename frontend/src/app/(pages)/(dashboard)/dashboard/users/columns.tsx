@@ -1,7 +1,20 @@
 'use client'
 
-import { Badge } from '#/src/app/components/ui/badge'
-import { Button } from '#/src/app/components/ui/button'
+import { type ColumnDef } from '@tanstack/react-table'
+import {
+  Contact,
+  MoreHorizontal,
+  Pencil,
+  Trash,
+  UserRound,
+  UserRoundSearch,
+  Users,
+} from 'lucide-react'
+
+import { DataTableColumnHeader } from '@/components/date-table/data-table-column-header'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,11 +22,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { User } from '#/src/types/user-type'
-import { ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontal, Pencil, Trash } from 'lucide-react'
-import { Checkbox } from '#/src/app/components/ui/checkbox'
-import Link from 'next/link'
+import { User } from '@/types/user-type'
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -40,31 +49,17 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'name',
-    header: 'Nombre',
+    header: 'Nombre completo',
     cell: ({ row }) => {
       const { first, last } = row.original.name
       return `${first || ''} ${last || ''}`
     },
   },
   {
-    accessorKey: 'username',
-    header: 'Usuario',
-  },
-  {
     accessorKey: 'email',
-    header: 'Correo electrónico',
-    cell: ({ row }) => {
-      const email = row.original.email
-      return (
-        <Link
-          className="hover:underline"
-          // href={`mailto:${email}`}
-          href={'#'}
-        >
-          {email}
-        </Link>
-      )
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Correo electrónico" />
+    ),
   },
   {
     accessorKey: 'phone',
@@ -72,41 +67,49 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'status',
-    header: 'Status',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Status" />
+    ),
     cell: ({ row }) => {
       const status = row.original.status
       return (
-        <Badge variant={status ? 'default' : 'destructive'}>
-          {status ? 'Activo' : 'Inactivo'}
+        <Badge variant={status === 'active' ? 'active' : 'inactive'}>
+          {status === 'active' ? 'Activo' : 'Inactivo'}
         </Badge>
       )
     },
   },
   {
     accessorKey: 'role',
-    header: 'Rol',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Rol" />
+    ),
     cell: ({ row }) => {
       const role = row.original.role
-      const roleBadgeVariants = {
-        schoolAdmin: 'default',
-        teacher: 'secondary',
-        student: 'destructive',
-        parent: 'outline',
-      } as const
       const roleText = {
         schoolAdmin: 'Coordinador',
         teacher: 'Profesor',
         student: 'Estudiante',
         parent: 'Tutor',
       } as const
-      return <Badge variant={roleBadgeVariants[role]}>{roleText[role]}</Badge>
+      const roleIcon = {
+        schoolAdmin: <UserRoundSearch className="h-4 w-4 text-gray-600" />,
+        teacher: <Contact className="h-4 w-4 text-gray-600" />,
+        student: <UserRound className="h-4 w-4 text-gray-600" />,
+        parent: <Users className="h-4 w-4 text-gray-600" />,
+      } as const
+      return (
+        <span className="flex items-center gap-2">
+          {roleIcon[role]}
+          {roleText[role]}
+        </span>
+      )
     },
   },
   {
     id: 'actions',
     cell: ({ row }) => {
       const user = row.original
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

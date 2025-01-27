@@ -1,7 +1,8 @@
-import { FormSignIn } from '@/components/organisms/forms/form-sign-in'
-import { Background } from '@/components/molecules/background'
 import { Metadata } from 'next'
 import Link from 'next/link'
+
+import { Background } from '@/components/molecules/background'
+import { FormSignIn } from '@/components/organisms/forms/form-sign-in'
 
 export const metadata: Metadata = {
   title: 'Iniciar sesión',

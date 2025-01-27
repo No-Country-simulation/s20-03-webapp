@@ -17,15 +17,20 @@ type SectionProps = {
   children: React.ReactNode
   className?: string
   component?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  id?: string
 }
 
 export const SectionLanding = ({
+  id,
   children,
   className,
   component: Component = 'div',
 }: SectionProps) => {
   return (
-    <Component className={cn('px-5 md:px-8 lg:px-12 2xl:px-16', className)}>
+    <Component
+      className={cn('px-5 md:px-8 lg:px-12 2xl:px-16', className)}
+      id={id}
+    >
       {children}
     </Component>
   )

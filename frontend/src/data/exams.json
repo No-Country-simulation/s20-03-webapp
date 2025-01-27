@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Ecuaciones lineales y cuadráticas",
+    "description": "Evaluación sobre ecuaciones lineales y cuadráticas. Se abordarán los métodos de resolución, incluyendo la factorización y el uso de la fórmula cuadrática. Los estudiantes deben estudiar los capítulos 4 y 5 del libro 'Matemáticas 3° Secundaria', páginas 120-150.",
+    "type": "prueba",
+    "date": "2025-02-15",
+    "group": 1
+  },
+  {
+    "title": "Construcción de figuras geométricas",
+    "description": "Taller práctico sobre la construcción de figuras geométricas y el cálculo de áreas y perímetros. Se utilizarán herramientas como regla y compás. Los estudiantes deberán revisar el capítulo 3 del libro 'Geometría para Secundaria', páginas 45-70.",
+    "type": "taller",
+    "date": "2025-03-01",
+    "group": 2
+  },
+  {
+    "title": "Funciones cuadráticas",
+    "description": "Presentación sobre las funciones cuadráticas y su representación gráfica. Se espera que los estudiantes expliquen cómo se determinan los vértices y las intersecciones con los ejes. Se recomienda estudiar el capítulo 6 del libro 'Funciones en Secundaria', páginas 80-100.",
+    "type": "exposición",
+    "date": "2025-03-10",
+    "group": 3
+  },
+  {
+    "title": "Relaciones de proporcionalidad directa e inversa",
+    "description": "Creación de un mapa mental que ilustre las relaciones de proporcionalidad directa e inversa, incluyendo ejemplos prácticos y gráficos. Los estudiantes deben consultar el capítulo 2 del libro 'Proporcionalidad en Matemáticas', páginas 30-50.",
+    "type": "mapa mental",
+    "date": "2025-03-20",
+    "group": 1
+  },
+  {
+    "title": "Recolección y análisis de datos",
+    "description": "Experimentos sobre la recolección y análisis de datos, incluyendo la creación de tablas de frecuencias y gráficos. Los estudiantes deben revisar el capítulo 7 del libro 'Estadística para Secundaria', páginas 110-130.",
+    "type": "prueba práctica",
+    "date": "2025-04-05",
+    "group": 1
+  }
+]

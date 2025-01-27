@@ -1,5 +1,24 @@
 import { Box } from 'lucide-react'
 
+export const HEADER_LINKS = [
+  {
+    name: 'Inicio',
+    href: '#home',
+  },
+  {
+    name: 'Funcionalidades',
+    href: '#features',
+  },
+  {
+    name: 'Testimonios',
+    href: '#testimonials',
+  },
+  {
+    name: '¡Contáctanos!',
+    href: '#contact',
+  },
+]
+
 export const FAQs = [
   {
     id: 1,
@@ -58,5 +77,32 @@ export const SERVICES = [
     title: 'Fácil de Usar',
     description: 'Interfaz intuitiva diseñada para todo público.',
     icon: Box,
+  },
+]
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'María Gongzález',
+    review:
+      '“Con esta plataforma, gestionamos las calificaciones y el desempeño estudiantil de forma más eficiente. Ahorramos tiempo cada semana.”',
+    position: 'Directora en Colegio Educare',
+    image: '/testimonials-avatar/maria.jpg',
+  },
+  {
+    id: 2,
+    name: 'Carlos López',
+    review:
+      '“Ahora puedo gestionar tareas y reportes con facilidad. La comunicación con los padres es más fluida que nunca.”',
+    position: 'Profesor de Matemáticas',
+    image: '/testimonials-avatar/carlos.jpg',
+  },
+  {
+    id: 3,
+    name: 'Sofia Rodríguez',
+    review:
+      '"Es increíble tener acceso inmediato a las calificaciones de mis hijos. Me siento más conectada con su educación."',
+    position: 'Madre de familia',
+    image: '/testimonials-avatar/sofia.jpg',
   },
 ]

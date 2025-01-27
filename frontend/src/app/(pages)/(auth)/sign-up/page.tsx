@@ -1,7 +1,8 @@
-import { FormSignUp } from '@/components/organisms/forms/form-sign-up'
-import { Background } from '@/components/molecules/background'
 import { Metadata } from 'next'
 import Link from 'next/link'
+
+import { Background } from '@/components/molecules/background'
+import { FormSignUp } from '@/components/organisms/forms/form-sign-up'
 
 export const metadata: Metadata = {
   title: 'Registrarse',

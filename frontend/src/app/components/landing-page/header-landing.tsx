@@ -1,31 +1,41 @@
 'use client'
 
-import { ChevronDown, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { HEADER_LINKS } from '@/lib/landing-constans'
+
+const AuthButtons = () => {
+  return (
+    <>
+      <Button variant="outline" size="sm" asChild>
+        <Link href="/sign-in">Iniciar sesión</Link>
+      </Button>
+      <Button size="sm" asChild>
+        <Link href="/sign-up">¡Registrarse!</Link>
+      </Button>
+    </>
+  )
+}
 
 /**
- * The `HeaderLanding` component renders the main navigation header of the landing-page.
- * It consists of a logo, desktop navigation links, call-to-action buttons,
- * and a mobile menu button. The mobile menu button toggles the visibility
- * of a dropdown menu for smaller screens. The desktop navigation includes
- * a dropdown menu with additional options.
+ * A header component for the landing page.
+ *
+ * This component renders a header with the ClassRun logo on the left, and a
+ * navigation menu and CTA buttons on the right. On smaller screens, the
+ * navigation menu and CTA buttons are hidden, and a mobile menu button is
+ * displayed instead. When the mobile menu button is clicked, the navigation
+ * menu and CTA buttons are displayed below the header.
  */
 
 export const HeaderLanding = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <header className="border-b">
+    <header className="sticky top-0 border-b bg-background">
       <div className="flex h-16 w-full items-center justify-between px-4">
         <Link href="/" className="flex items-center">
           <Image src="/logo.svg" alt="ClassRun logo" width={120} height={120} />
@@ -33,27 +43,22 @@ export const HeaderLanding = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-6 md:flex">
-          <Link href="#" className="text-sm font-medium hover:text-primary">
-            Link One
-          </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center text-sm font-medium hover:text-primary">
-              Link Four <ChevronDown className="ml-1 h-4 w-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Option 1</DropdownMenuItem>
-              <DropdownMenuItem>Option 2</DropdownMenuItem>
-              <DropdownMenuItem>Option 3</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {HEADER_LINKS.map(link => {
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium hover:text-primary"
+              >
+                {link.name}
+              </Link>
+            )
+          })}
         </nav>
 
         {/* Desktop CTA Buttons */}
         <div className="hidden items-center space-x-4 md:flex">
-          <Button variant="ghost" size="sm">
-            Log in
-          </Button>
-          <Button size="sm">Get started</Button>
+          <AuthButtons />
         </div>
 
         {/* Mobile Menu Button */}
@@ -68,14 +73,19 @@ export const HeaderLanding = () => {
         {isMobileMenuOpen && (
           <div className="absolute left-0 right-0 top-16 border-b bg-background md:hidden">
             <nav className="container flex flex-col space-y-4 p-4">
-              <Link href="#" className="text-sm font-medium hover:text-primary">
-                Link One
-              </Link>
-              <div className="flex flex-col space-y-2">
-                <Button variant="ghost" size="sm">
-                  Log in
-                </Button>
-                <Button size="sm">Get started</Button>
+              {HEADER_LINKS.map(link => {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm font-medium hover:text-primary"
+                  >
+                    {link.name}
+                  </Link>
+                )
+              })}
+              <div className="flex flex-col gap-2">
+                <AuthButtons />
               </div>
             </nav>
           </div>

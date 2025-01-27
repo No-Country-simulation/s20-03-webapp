@@ -28,17 +28,13 @@ export const ProfileForm = () => {
     },
   })
 
-  // Poner tipos #TypeScript
-  const onSubmit = (data: any) => {
+  const onSubmit = form.handleSubmit(data => {
     alert(JSON.stringify(data, undefined, 2))
-  }
+  })
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-2xl space-y-8"
-      >
+      <form onSubmit={onSubmit} className="max-w-2xl space-y-8">
         <div className="flex gap-4">
           <FormField
             control={form.control}
