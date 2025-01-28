@@ -7,9 +7,9 @@ managerRouter.get('/courses', coursesController.getCourses);
 
 managerRouter.post('/courses/create', coursesController.newCourse);
 
-managerRouter.post('/courses/:courseId/grades/add', coursesController.addGrade);
+managerRouter.post('/courses/grade/add', coursesController.addGrade);
 
-managerRouter.post('/courses/:courseId/grades/add', coursesController.remGrade);
+managerRouter.post('/courses/grade/rem', coursesController.remGrade);
 
 managerRouter.get('/grades', gradesController.getGrades);
 

@@ -24,17 +24,43 @@ const coursesController = {
         }
     },
     addGrade: async (req, res) => {
-        const { courseId } = req.params;
+        const { courseId, gradeId } = req.body;
         try {
             const course = await courseModel.findById(courseId);
-            res.status(responses.common.success.status).json(responses.common.payload(course));
+            const grade = await gradeModel.findById(gradeId);
+            if (!course || !grade) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound);
+            }
+            if (course.grades.includes(gradeId)) {
+                return res.status(responses.common.conflict.status).json(responses.common.conflict);
+            }
+            course.grades.push(gradeId);
+            const newCourse = await course.save();
+            res.status(responses.common.success.status).json(responses.common.payload(newCourse));
         } catch (error) {
             console.error(error);
             res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
         }
     },
-    remGrade: (req, res) => {
-        res.status(200).json({ message: 'addGrade' });
+    remGrade: async (req, res) => {
+        const { courseId, gradeId } = req.body;
+        try {
+            const course = await courseModel.findById(courseId);
+            const grade = await gradeModel.findById(gradeId);
+            if (!course || !grade) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound);
+            }
+            if (!course.grades.includes(gradeId)) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound);
+            }
+            course.grades = course.grades.filter((grade) => grade._id === gradeId);
+            console.log(course.grades);
+            const newCourse = await course.save();
+            res.status(responses.common.success.status).json(responses.common.payload(newCourse));
+        } catch (error) {
+            console.error(error);
+            res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
+        }
     },
 };
 

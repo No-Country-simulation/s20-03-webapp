@@ -8,6 +8,7 @@ const responses = {
                 payload
             };
         },
+        conflict: { status: 409, message: 'Conflict' },
         noContent: { status: 204, message: 'No Content' },
         notFound: { status: 404, message: 'Not Found' },
         badRequest: { status: 400, message: 'Bad Request' },
