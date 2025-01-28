@@ -1,8 +1,5 @@
 require('dotenv').config({ path: '../.env' }); //Variables de entorno
 const mongoose = require('mongoose');
-// const CourseModel = require('../db/models/courseModel');
-// const UserModel = require('../db/models/userModel');
-// const dbConnection = require('../db/connections');
 const CourseModel = require('../db/models/courseModel');
 const UserModel = require('../db/models/userModel');
 const dbConnection = require('../db/connection');

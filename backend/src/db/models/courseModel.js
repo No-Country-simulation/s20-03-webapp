@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const courseSchema = require('../schemas/courseSchema');
 
-// Definir el esquema del curso
-const courseSchema = new Schema({
-    name: { type: String, required: true },
-    grade: { type: String, required: true },
-    section: { type: String, required: true },
-    coordinator: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-}, { timestamps: true });
+const courseModel = mongoose.model('Course', courseSchema);
 
-// Crear y exportar el modelo de curso
-const CourseModel = mongoose.model('Course', courseSchema);
-
-module.exports = CourseModel;
+module.exports = courseModel;
