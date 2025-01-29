@@ -1,3 +1,4 @@
+const config = require('../config');
 const jwt = require('jsonwebtoken');
 const userModel = require('../db/models/userModel');
 const responses = require('../utils/responses');
@@ -10,18 +11,22 @@ const authController = {
             if (!user) {
                 return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
             }
+            if (!user.active) {
+                return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
+            }
             const match = await user.matchPassword(password);
             if (!match) {
                 return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
             }
             const token = jwt.sign({ id: user._id, role: user.role }, config.auth.secret, { expiresIn: config.auth.expiresIn });
-            payload = {
+            const payload = {
                 id: user._id,
-                fullname: user.fullname,
+                name: user.name,
+                lastname: user.lastname,
                 role: user.role
             };
             res.cookie('token', token, { httpOnly: true });
-            res.status(responses.common.payload().status).json(responses.common.payload(payload));
+            res.status(responses.common.success.status).json(responses.common.payload(payload));
         } catch (error) {
             console.error(error);
             res.status(responses.common.internalServerError).json(responses.common.internalServerError);
@@ -35,7 +40,7 @@ const authController = {
             // res.status(responses.common.payload().status).json(responses.common.payload(payload));
           } catch (error) {
             console.error(error);
-            res.status(responses.common.internalServerError).json(responses.common.internalServerError);
+            res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
           }
         // res.send('Register route');
     }
