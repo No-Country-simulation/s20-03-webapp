@@ -35,14 +35,14 @@ export function DataTable<TData, TValue>({
     })
 
     return (
-        <div className="rounded-md border">
-            <Table>
-                <TableHeader>
+        <div className="rounded-md border  flex flex-col justify-between items-center  w-full sm:w-[445px] p-5 ml-4">
+            <Table className=" flex flex-col justify-between ">
+                <TableHeader className="flex justify-between" >
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id}>
+                        <TableRow  className="flex justify-between gap-44" key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
-                                    <TableHead key={header.id}>
+                                    <TableHead className="" key={header.id}>
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
@@ -55,15 +55,16 @@ export function DataTable<TData, TValue>({
                         </TableRow>
                     ))}
                 </TableHeader>
-                <TableBody>
+                <TableBody >
                     {table.getRowModel().rows?.length ? (
                         table.getRowModel().rows.map((row) => (
                             <TableRow
+                                className=" flex justify-between"
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
                             >
                                 {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id}>
+                                    <TableCell className=" mr-12" key={cell.id}>
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </TableCell>
                                 ))}
@@ -79,7 +80,7 @@ export function DataTable<TData, TValue>({
                 </TableBody>
             </Table>
 
-            <div className="flex px-5">
+            <div className="flex px-5 gap-5">
                 <Button 
                     variant="outline"
                     size="sm"
