@@ -1,10 +1,15 @@
 const gradeModel = require('../db/models/gradeModel');
+const subjectModel = require('../db/models/subjectModel');
 const responses = require('../utils/responses');
+const courseModel = require("../db/models/courseModel");
 
 const gradesController = {
     getGrades: async (req, res) => {
         try {
-            const grades = await gradeModel.find();
+            const grades = await gradeModel.find().populate({
+                path: 'subjects',
+                select: 'title description',
+            });
             if (!grades) {
                 return res.status(responses.common.noContent.status).json(responses.common.noContent);
             }
@@ -22,8 +27,24 @@ const gradesController = {
             res.status(responses.common.badRequest.status).json(responses.common.badRequest);
         }
     },
-    addSubject: (req, res) => {
-        res.status(200).json({ message: 'addGrade' });
+    addSubject: async (req, res) => {
+        const { gradeId, subjectId } = req.body;
+        try {
+            const grade = await gradeModel.findById(gradeId);
+            const subject = await subjectModel.findById(subjectId);
+            if (!grade || !subject) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound);
+            }
+            if (grade.subjects .includes(subjectId)) {
+                return res.status(responses.common.conflict.status).json(responses.common.conflict);
+            }
+            grade.subjects.push(subjectId);
+            const newGrade = await grade.save();
+            res.status(responses.common.success.status).json(responses.common.payload(newGrade));
+        } catch (error) {
+            console.error(error);
+            res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
+        }
     },
 };
 

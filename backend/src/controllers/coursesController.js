@@ -1,11 +1,19 @@
 const courseModel = require('../db/models/courseModel');
 const gradeModel = require('../db/models/gradeModel');
+const subjectModel = require('../db/models/subjectModel');
 const responses = require('../utils/responses');
 
 const coursesController = {
     getCourses: async (req, res) => {
         try {
-            const courses = await courseModel.find().populate('grades');
+            const courses = await courseModel.find().populate({
+                path: 'grades',
+                select: 'title description',
+                populate: {
+                    path: 'subjects',
+                    select: 'title description',
+                },
+            });
             if (!courses) {
                 return res.status(responses.common.noContent.status).json(responses.common.noContent);
             }
@@ -20,6 +28,9 @@ const coursesController = {
             const newCourse = await courseModel.create({ title, description, grades, startDate, endDate, status });
             res.status(responses.common.success.status).json(responses.common.payload(newCourse));
         } catch (error) {
+            if (error.code === 11000) {
+                return res.status(responses.common.conflict.status).json(responses.common.conflict);
+            }
             res.status(responses.common.badRequest.status).json(responses.common.badRequest);
         }
     },
