@@ -1,9 +1,10 @@
-config = {
+// App configuration
+const config = {
     server: {
         port: parseInt(process.env.SERVER_PORT),
     },
     database: {
-        connectionString: process.env.MONGODB_LOCAL_URI,
+        connectionString: process.env.MONGODB_URI,
         options: {},
     },
     auth: {
@@ -17,4 +18,5 @@ config = {
     }
 };
 
+// Export the configuration object
 module.exports = config;

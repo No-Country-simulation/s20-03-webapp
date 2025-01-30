@@ -34,6 +34,23 @@ const groupsController = {
             res.status(500).json({ message: error.message });
         }
     },
+    addUser: async (req, res) => {
+        const { groupId, userId } = req.body;
+        try {
+            const group = await groupModel.findById(groupId);
+            if (!group) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound.message);
+            }
+            if (group.students.includes(userId)) {
+                return res.status(responses.common.conflict.status).json(responses.common.conflict.message);
+            }
+            group.students.push(userId);
+            const newGroup = await group.save();
+            res.status(responses.common.success.status).json(responses.common.payload(newGroup));
+        } catch (error) {
+            res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
+        }
+    }
 }
 
 module.exports = groupsController;
