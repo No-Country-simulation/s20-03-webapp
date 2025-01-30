@@ -34,15 +34,25 @@ const authController = {
     },
     register: async (req, res) => {
         try {
-            const { username, password, name, lastname, birthday, role, email, address, avatar} = req.body;
-            const user = await userModel.create({ username, password, name, lastname, birthday, role, email, address, avatar });
-            res.status(201).json(user);
-            // res.status(responses.common.payload().status).json(responses.common.payload(payload));
+            const { username, password, name, lastname, birthdate, role, email, address, avatar} = req.body;
+            const user = await userModel.create({ username, password, name, lastname, birthdate, role, email, address, avatar });
+            const payload = {
+                id: user._id,
+                username: user.username,
+                name: user.name,
+                lastname: user.lastname,
+                birthdate: user.birthdate,
+                role: user.role,
+                email: user.email,
+                address: user.address,
+                avatar: user.avatar,
+                active: user.active
+            };
+            res.status(responses.common.success.status).json(responses.common.payload(payload));
           } catch (error) {
             console.error(error);
             res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
           }
-        // res.send('Register route');
     }
 }
 
