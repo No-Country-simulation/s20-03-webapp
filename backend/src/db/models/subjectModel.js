@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const subjectSchemaSchema = require('../schemas/subjectSchema');
+const subjectSchema = require('../schemas/subjectSchema');
 
-const subjectModel = mongoose.model('Subject', subjectSchemaSchema);
+const subjectModel = mongoose.model('Subject', subjectSchema);
 
 module.exports = subjectModel;
