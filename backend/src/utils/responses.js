@@ -1,3 +1,4 @@
+// API responses
 const responses = {
     common: {
         success: { status: 200, message: 'Success' },
@@ -21,4 +22,5 @@ const responses = {
     },
 };
 
+// Export the responses object
 module.exports = responses;
