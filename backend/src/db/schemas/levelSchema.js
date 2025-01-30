@@ -1,6 +1,6 @@
 const Schema = require('mongoose').Schema;
 
-const gradeSchema = new Schema({
+const levelSchema = new Schema({
     title: { type: String, required: true, unique: true, index: true },
     description: { type: String, required: false },
     subjects: [{ type: Schema.Types.ObjectId, ref: 'Subject', required: false }],
@@ -9,4 +9,4 @@ const gradeSchema = new Schema({
     status: { type: String, required: true, enum: ['scheduled', 'started', 'ended'], default: 'started' },
 }, { timestamps: true });
 
-module.exports = gradeSchema;
+module.exports = levelSchema;

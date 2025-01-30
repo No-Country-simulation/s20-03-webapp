@@ -1,6 +1,6 @@
 const managerRouter = require('express').Router();
 const coursesController = require('../../controllers/coursesController');
-const gradesController = require('../../controllers/gradesController');
+const levelsController = require('../../controllers/levelsController');
 const subjectsController = require('../../controllers/subjectsController');
 const responses = require('../../utils/responses');
 
@@ -8,15 +8,15 @@ managerRouter.get('/courses', coursesController.getCourses);
 
 managerRouter.post('/courses/create', coursesController.newCourse);
 
-managerRouter.post('/courses/grade/add', coursesController.addGrade);
+managerRouter.post('/courses/level/add', coursesController.addLevel);
 
-managerRouter.post('/courses/grade/rem', coursesController.remGrade);
+managerRouter.post('/courses/level/rem', coursesController.remLevel);
 
-managerRouter.get('/grades', gradesController.getGrades);
+managerRouter.get('/levels', levelsController.getLevels);
 
-managerRouter.post('/grades/create', gradesController.newGrade);
+managerRouter.post('/levels/create', levelsController.newLevel);
 
-managerRouter.post('/grades/subjects/add', gradesController.addSubject);
+managerRouter.post('/levels/subjects/add', levelsController.addSubject);
 
 managerRouter.get('/subjects', subjectsController.getSubjects);
 

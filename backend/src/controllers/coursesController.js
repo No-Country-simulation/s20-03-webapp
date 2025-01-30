@@ -1,5 +1,5 @@
 const courseModel = require('../db/models/courseModel');
-const gradeModel = require('../db/models/gradeModel');
+const levelModel = require('../db/models/levelModel');
 const subjectModel = require('../db/models/subjectModel');
 const responses = require('../utils/responses');
 
@@ -7,7 +7,7 @@ const coursesController = {
     getCourses: async (req, res) => {
         try {
             const courses = await courseModel.find().populate({
-                path: 'grades',
+                path: 'levels',
                 select: 'title description',
                 populate: {
                     path: 'subjects',
@@ -19,6 +19,7 @@ const coursesController = {
             }
             res.status(responses.common.success.status).json(responses.common.payload(courses));
         } catch (error) {
+            console.error(error);
             res.status(responses.common.badRequest.status).json(responses.common.badRequest);
         }
     },
@@ -34,18 +35,18 @@ const coursesController = {
             res.status(responses.common.badRequest.status).json(responses.common.badRequest);
         }
     },
-    addGrade: async (req, res) => {
-        const { courseId, gradeId } = req.body;
+    addLevel: async (req, res) => {
+        const { courseId, levelId } = req.body;
         try {
             const course = await courseModel.findById(courseId);
-            const grade = await gradeModel.findById(gradeId);
-            if (!course || !grade) {
+            const level = await levelModel.findById(levelId);
+            if (!course || !level) {
                 return res.status(responses.common.notFound.status).json(responses.common.notFound);
             }
-            if (course.grades.includes(gradeId)) {
+            if (course.levels.includes(levelId)) {
                 return res.status(responses.common.conflict.status).json(responses.common.conflict);
             }
-            course.grades.push(gradeId);
+            course.levels.push(levelId);
             const newCourse = await course.save();
             res.status(responses.common.success.status).json(responses.common.payload(newCourse));
         } catch (error) {
@@ -53,19 +54,18 @@ const coursesController = {
             res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
         }
     },
-    remGrade: async (req, res) => {
-        const { courseId, gradeId } = req.body;
+    remLevel: async (req, res) => {
+        const { courseId, levelId } = req.body;
         try {
             const course = await courseModel.findById(courseId);
-            const grade = await gradeModel.findById(gradeId);
-            if (!course || !grade) {
+            const level = await levelModel.findById(levelId);
+            if (!course || !level) {
                 return res.status(responses.common.notFound.status).json(responses.common.notFound);
             }
-            if (!course.grades.includes(gradeId)) {
+            if (!course.grades.includes(levelId)) {
                 return res.status(responses.common.notFound.status).json(responses.common.notFound);
             }
-            course.grades = course.grades.filter((grade) => grade._id === gradeId);
-            console.log(course.grades);
+            course.levels = course.levels.filter((level) => level._id === levelId);
             const newCourse = await course.save();
             res.status(responses.common.success.status).json(responses.common.payload(newCourse));
         } catch (error) {

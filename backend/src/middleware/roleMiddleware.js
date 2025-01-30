@@ -5,7 +5,7 @@ const roleMiddleware = async (req, res, next) => {
     const { role } = req.user;
     switch (route) {
         case 'manager':
-            if (role === 'manager') {
+            if (role === 'schoolAdmin') {
                 return next();
             }
             break;
