@@ -1,4 +1,4 @@
-const groupModel = require('../models/groupModel');
+const groupModel = require('../db/models/groupModel');
 const responses = require('../utils/responses');
 
 const groupsController = {
@@ -34,17 +34,35 @@ const groupsController = {
             res.status(500).json({ message: error.message });
         }
     },
-    addUser: async (req, res) => {
-        const { groupId, userId } = req.body;
+    addStudent: async (req, res) => {
+        const { groupId, studentId } = req.body;
         try {
             const group = await groupModel.findById(groupId);
             if (!group) {
                 return res.status(responses.common.notFound.status).json(responses.common.notFound.message);
             }
-            if (group.students.includes(userId)) {
+            if (group.students.includes(studentId)) {
                 return res.status(responses.common.conflict.status).json(responses.common.conflict.message);
             }
-            group.students.push(userId);
+            group.students.push(studentId);
+            const newGroup = await group.save();
+            res.status(responses.common.success.status).json(responses.common.payload(newGroup));
+        } catch (error) {
+            console.error(error);
+            res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
+        }
+    },
+    remStudent: async (req, res) => {
+        const {groupId, studentId} = req.body;
+        try {
+            const group = await groupModel.findById(groupId);
+            if (!group) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound.message);
+            }
+            if (!group.students.includes(studentId)) {
+                return res.status(responses.common.notFound.status).json(responses.common.notFound);
+            }
+            group.students = group.students.filter(student => !student.equals(studentId));
             const newGroup = await group.save();
             res.status(responses.common.success.status).json(responses.common.payload(newGroup));
         } catch (error) {
