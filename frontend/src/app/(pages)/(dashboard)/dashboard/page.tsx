@@ -1,16 +1,16 @@
 import { Metadata } from 'next'
-
-import { StudentDashboard } from '@/components/dashboards/student-dashboard'
-import { ParentDashboard } from '@/components/dashboards/parent-dashboard'
-import { TeacherDashboard } from '@/components/dashboards/teacher-dashboard'
 import { redirect } from 'next/navigation'
+
+import { ParentDashboard } from '@/components/dashboards/parent-dashboard'
+import { StudentDashboard } from '@/components/dashboards/student-dashboard'
+import { TeacherDashboard } from '@/components/dashboards/teacher-dashboard'
 
 export const metadata: Metadata = {
   title: 'Panel de control',
 }
 
 type Role = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
-let roleFromMyDb: Role = 'teacher'
+let roleFromMyDatabase: Role = 'student'
 
 const dashboards = {
   teacher: <TeacherDashboard />,
@@ -19,8 +19,8 @@ const dashboards = {
 }
 
 export default function DashboardPage() {
-  if (roleFromMyDb === 'schoolAdmin') redirect('/dashboard/users')
+  if (roleFromMyDatabase === 'schoolAdmin') redirect('/dashboard/users')
 
-  const CurrentDashboard = dashboards[roleFromMyDb] || null
+  const CurrentDashboard = dashboards[roleFromMyDatabase] || null
   return CurrentDashboard
 }

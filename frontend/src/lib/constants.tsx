@@ -92,6 +92,10 @@ export const navGroups = [
             url: '/dashboard/settings',
           },
           {
+            title: 'Autenticación',
+            url: '/dashboard/settings/authentication',
+          },
+          {
             title: 'Apariencia',
             url: '/dashboard/settings/appearance',
           },

@@ -3,6 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -13,9 +15,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { EditUserFormSchema } from '@/validations/schemas'
-import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
@@ -24,7 +23,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
+import { Textarea } from '@/components/ui/textarea'
 import { User } from '@/types/user-type'
+import { EditUserFormSchema } from '@/validations/schemas'
 
 const roles = [
   {

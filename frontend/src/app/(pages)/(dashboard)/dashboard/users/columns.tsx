@@ -10,20 +10,14 @@ import {
   UserRoundSearch,
   Users,
 } from 'lucide-react'
+import { useState } from 'react'
 
 import { DataTableColumnHeader } from '@/components/date-table/data-table-column-header'
+import { FormEditUser } from '@/components/organisms/forms/form-edit-user'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { User } from '@/types/user-type'
-
 import {
   Dialog,
   DialogContent,
@@ -32,10 +26,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { FormEditUser } from '@/components/organisms/forms/form-edit-user'
-import { useState } from 'react'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { textRoles } from '@/lib/constants'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { User } from '@/types/user-type'
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -111,7 +110,7 @@ export const columns: ColumnDef<User>[] = [
         student: <UserRound className="h-4 w-4 text-gray-600" />,
         parent: <Users className="h-4 w-4 text-gray-600" />,
       } as const
-      
+
       return (
         <span className="flex items-center gap-2">
           {roleIcon[role]}

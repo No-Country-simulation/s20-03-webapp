@@ -1,5 +1,5 @@
-import { FormAuthentication } from '@/components/organisms/forms/form-authentication'
 import { Section } from '@/components/atoms/section'
+import { FormAuthentication } from '@/components/organisms/forms/form-authentication'
 import { Separator } from '@/components/ui/separator'
 
 export default function AuthenticationPage() {

@@ -16,10 +16,10 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
-import { ProfileFormSchema } from '@/validations/schemas'
 import { Textarea } from '@/components/ui/textarea'
+import { ProfileFormSchema } from '@/validations/schemas'
 
-const userFromDb = {
+const userFromDatabase = {
   name: 'Eduardo',
   lastName: 'Rodríguez',
   phone: '123456789',
@@ -32,12 +32,12 @@ export const FormProfile = () => {
   const form = useForm<z.infer<typeof ProfileFormSchema>>({
     resolver: zodResolver(ProfileFormSchema),
     defaultValues: {
-      name: userFromDb.name,
-      lastName: userFromDb.lastName,
-      phone: userFromDb.phone,
-      dni: userFromDb.dni,
-      address: userFromDb.address,
-      birthdate: userFromDb.birthdate,
+      name: userFromDatabase.name,
+      lastName: userFromDatabase.lastName,
+      phone: userFromDatabase.phone,
+      dni: userFromDatabase.dni,
+      address: userFromDatabase.address,
+      birthdate: userFromDatabase.birthdate,
     },
   })
 
