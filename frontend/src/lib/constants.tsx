@@ -1,9 +1,7 @@
 import {
   Archive,
-  Bell,
   BookOpenCheck,
   CircleHelp,
-  Hammer,
   LayoutDashboard,
   Settings,
   Users,
@@ -14,24 +12,24 @@ export const navGroups = [
     title: 'General',
     items: [
       {
-        title: 'Panel de control',
+        title: 'Dash - schoolAdmin',
+        icon: LayoutDashboard,
+        url: '/dashboard/school-admin',
+      },
+      {
+        title: 'Dash - teacher',
+        icon: LayoutDashboard,
+        url: '/dashboard/teacher',
+      },
+      {
+        title: 'Dash - student',
         icon: LayoutDashboard,
         url: '/dashboard',
       },
       {
-        title: 'Notificaciones',
-        icon: Bell,
-        url: '/dashboard/notifications',
-      },
-    ],
-  },
-  {
-    title: 'Páginas temporales',
-    items: [
-      {
-        title: 'Dialogs',
-        icon: Hammer,
-        url: '/dashboard/dialogs',
+        title: 'Dash - parent',
+        icon: LayoutDashboard,
+        url: '/dashboard/parent',
       },
     ],
   },
