@@ -1,26 +1,29 @@
 export interface User {
-  id: string
-  username: string
-  name: Name
+  id?: string
+  firstName: string
+  lastName: string
+  dni: string
+  birthdate: string
   email: string
+  address?: string
+  // address: 'Address'
+  avatar?: string
   role: UserRole
   status: boolean
   phone: string
-  address: Address
-  avatar: string
-  birthdate: string
 }
+
 export type UserRole = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
 
-export interface Address {
-  street: string
-  city: string
-  state: string
-  country: string
-  zip: string
-}
+// export interface Address {
+//   street: string
+//   city: string
+//   state: string
+//   country: string
+//   zip: string
+// }
 
-export interface Name {
-  first: string
-  last: string
-}
+// export interface Name {
+//   first: string
+//   last: string
+// }

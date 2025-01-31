@@ -1,6 +1,7 @@
+/* eslint-disable unicorn/prefer-structured-clone */
 import { Section } from '@/components/atoms/section'
 import USERS_JSON from '@/data/users.json'
-import { User } from '#/src/types/user-type'
+import { User } from '@/types/user-type'
 
 import { columns } from './columns'
 import { DataTable } from './data-table'

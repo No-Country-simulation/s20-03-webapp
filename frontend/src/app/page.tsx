@@ -1,8 +1,11 @@
-import { FaqSection } from '@/components/landing-page/faq-section'
-import { Footer } from '@/components/landing-page/footer'
-import { HeaderLanding } from '@/components/landing-page/header-landing'
-import { HeroSection } from '@/components/landing-page/hero-section'
-import { ServicesSection } from '@/components/landing-page/services-section'
+import {
+  FaqSection,
+  FooterLanding,
+  HeaderLanding,
+  HeroSection,
+  ServicesSection,
+  TestimonialsSection,
+} from '@/components/landing-page'
 
 export default function HomePage() {
   return (
@@ -10,8 +13,9 @@ export default function HomePage() {
       <HeaderLanding />
       <HeroSection />
       <ServicesSection />
+      <TestimonialsSection />
       <FaqSection />
-      <Footer />
+      <FooterLanding />
     </div>
   )
 }

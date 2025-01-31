@@ -8,15 +8,15 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 interface UpdateGradesProps {
-  names: string[];
+  names: string[]
 }
 
 export function UpdateGrades({ names }: UpdateGradesProps) {
@@ -26,19 +26,19 @@ export function UpdateGrades({ names }: UpdateGradesProps) {
         <CardTitle className="">Subir Notas</CardTitle>
       </CardHeader>
       <CardContent>
-        <form >
+        <form>
           <div className="mt-3">
             <Select>
-                <SelectTrigger >
-                  <SelectValue placeholder="Selecciona un alumno"  />
-                </SelectTrigger>
-                <SelectContent>
-                  {names.map((name, index) => (
-                    <SelectItem key={index} value={name} >
-                      {name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
+              <SelectTrigger>
+                <SelectValue placeholder="Selecciona un alumno" />
+              </SelectTrigger>
+              <SelectContent>
+                {names.map((name, index) => (
+                  <SelectItem key={index} value={name}>
+                    {name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
             </Select>
           </div>
           <div className="mt-3">
