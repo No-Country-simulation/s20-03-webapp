@@ -17,7 +17,7 @@ export const ProfileFormSchema = z
     birthdate: z.string().refine(
       value => {
         const date = new Date(value)
-        return date.getFullYear() > 1900 && !isNaN(date.getTime()) // Verifica que el año sea posterior a 1900 y que sea una fecha válida
+        return date.getFullYear() > 1900 && !Number.isNaN(date.getTime()) // Verifica que el año sea posterior a 1900 y que sea una fecha válida
       },
       {
         message: 'La fecha de nacimiento debe ser posterior a 1900',
@@ -79,7 +79,7 @@ export const EditUserFormSchema = z.object({
   birthdate: z.string().refine(
     value => {
       const date = new Date(value)
-      return date.getFullYear() > 1900 && !isNaN(date.getTime()) // Verifica que el año sea posterior a 1900 y que sea una fecha válida
+      return date.getFullYear() > 1900 && !Number.isNaN(date.getTime()) // Verifica que el año sea posterior a 1900 y que sea una fecha válida
     },
     {
       message: 'La fecha de nacimiento debe ser posterior a 1900',

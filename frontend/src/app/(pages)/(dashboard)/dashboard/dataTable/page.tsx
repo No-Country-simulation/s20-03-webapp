@@ -1,19 +1,18 @@
-"use client"
+import { payments } from '@/data/payments.data'
 
-import { payments } from "@/data/payments.data";
-import { columns } from "./colums";
-import { DataTable} from "./data-table";
+import { columns } from './colums'
+import { DataTable } from './data-table'
 
-async function fetchData(){
-    return payments;
+async function fetchData() {
+  return payments
 }
 
-export default async function Page(){
-    const data = await fetchData();
+export default async function Page() {
+  const data = await fetchData()
 
-    return (
-        <div>
-            <DataTable columns={columns} data={data} />
-        </div>
-    )
+  return (
+    <div>
+      <DataTable columns={columns} data={data} />
+    </div>
+  )
 }
