@@ -122,6 +122,8 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     id: 'actions',
+    accessorKey: 'actions',
+    header: undefined,
     cell: ({ row }) => {
       const user = row.original
       const [editDialogOpen, setEditDialogOpen] = useState(false)
