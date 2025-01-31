@@ -1,5 +1,9 @@
 const teacherRouter = require('express').Router();
 const responses = require('../../utils/responses');
+const attendanceController = require('../../controllers/attendanceController');
+
+
+teacherRouter.post('/attendance', attendanceController.newAttendance);
 
 teacherRouter.get('/', (req, res) => {
     res.status(responses.common.success.status).json(responses.common.success);

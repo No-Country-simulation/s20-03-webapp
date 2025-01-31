@@ -1,9 +1,10 @@
 const studentRouter = require('express').Router();
 const responses = require('../../utils/responses');
+const studentsController = require('../../controllers/studentsController');
 
-studentRouter.get('/', (req, res) => {
-    res.status(responses.common.success.status).json(responses.common.success);
-});
+studentRouter.get('/courses', studentsController.getCourses);
+studentRouter.get('/attendances', studentsController.getAttendances);
+
 
 studentRouter.get('*', (req, res) => {
     console.log(req.url)

@@ -14,9 +14,9 @@ const subjectsController = {
         }
     },
     newSubject: async (req, res) => {
-        const { title, description } = req.body;
+        const { title, teacherId, description } = req.body;
         try {
-            const newSubject = await subjectModel.create({ title, description });
+            const newSubject = await subjectModel.create({ title, teacherId, description });
             res.status(responses.common.success.status).json(responses.common.payload(newSubject));
         } catch (error) {
             if (error.code === 11000) {

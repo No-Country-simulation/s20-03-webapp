@@ -34,14 +34,15 @@ const authController = {
     },
     register: async (req, res) => {
         try {
-            const { username, password, name, lastname, birthdate, role, email, address, avatar} = req.body;
-            const user = await userModel.create({ username, password, name, lastname, birthdate, role, email, address, avatar });
+            const { username, password, name, lastname, birthdate, phonenumber, role, email, address, avatar} = req.body;
+            const user = await userModel.create({ username, password, name, lastname, birthdate, phonenumber, role, email, address, avatar });
             const payload = {
                 id: user._id,
                 username: user.username,
                 name: user.name,
                 lastname: user.lastname,
                 birthdate: user.birthdate,
+                phonenumber: user.phonenumber,
                 role: user.role,
                 email: user.email,
                 address: user.address,

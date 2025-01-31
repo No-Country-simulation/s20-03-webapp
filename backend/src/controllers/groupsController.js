@@ -26,9 +26,9 @@ const groupsController = {
         }
     },
     createGroup: async (req, res) => {
-        const { title, manager, teacher, students } = req.body;
+        const { title, manager, teacher, students, levelId } = req.body;
         try {
-            const newGroup = await groupModel.create({ title, manager, teacher, students });
+            const newGroup = await groupModel.create({ title, manager, teacher, students, levelId });
             res.status(responses.common.success.status).json(responses.common.payload(newGroup));
         } catch (error) {
             res.status(500).json({ message: error.message });

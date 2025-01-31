@@ -25,6 +25,8 @@ managerRouter.post('/subjects/create', subjectsController.newSubject);
 
 managerRouter.get('/groups', groupsController.getGroups);
 
+managerRouter.get('/groups/getgroup', groupsController.getGroup);
+
 managerRouter.post('/groups/create', groupsController.createGroup);
 
 managerRouter.post('/groups/addstudent', groupsController.addStudent);

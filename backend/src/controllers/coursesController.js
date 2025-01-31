@@ -24,9 +24,9 @@ const coursesController = {
         }
     },
     newCourse: async (req, res) => {
-        const { title, description, grades, startDate, endDate, status } = req.body;
+        const { title, description, levels, startDate, endDate, status } = req.body;
         try {
-            const newCourse = await courseModel.create({ title, description, grades, startDate, endDate, status });
+            const newCourse = await courseModel.create({ title, description, levels, startDate, endDate, status });
             res.status(responses.common.success.status).json(responses.common.payload(newCourse));
         } catch (error) {
             if (error.code === 11000) {
