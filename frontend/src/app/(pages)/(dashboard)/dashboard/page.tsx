@@ -1,18 +1,26 @@
 import { Metadata } from 'next'
 
-import { Section } from '@/components/atoms/section'
-import { PendingEvents } from '@/components/organisms/pending-events'
-import { SummarySubjectsGrid } from '@/components/organisms/summary-subjects-grid'
+import { StudentDashboard } from '@/components/dashboards/student-dashboard'
+import { ParentDashboard } from '@/components/dashboards/parent-dashboard'
+import { TeacherDashboard } from '@/components/dashboards/teacher-dashboard'
+import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Panel de control',
 }
 
+type Role = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
+let roleFromMyDb: Role = 'teacher'
+
+const dashboards = {
+  teacher: <TeacherDashboard />,
+  student: <StudentDashboard />,
+  parent: <ParentDashboard />,
+}
+
 export default function DashboardPage() {
-  return (
-    <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <SummarySubjectsGrid />
-      <PendingEvents />
-    </Section>
-  )
+  if (roleFromMyDb === 'schoolAdmin') redirect('/dashboard/users')
+
+  const CurrentDashboard = dashboards[roleFromMyDb] || null
+  return CurrentDashboard
 }

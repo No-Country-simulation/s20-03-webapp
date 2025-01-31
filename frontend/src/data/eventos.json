@@ -2,37 +2,36 @@
   {
     "id": 1,
     "title": "Estudiar para el examen de matemáticas",
-    "course": "Matemáticas",
+    "type": "exam",
+    "subject": "Matemáticas",
     "date": "2025-01-21"
   },
   {
     "id": 2,
     "title": "Leer capítulo 5 de Historia",
-    "course": "Historia",
+    "type": "exam",
+    "subject": "Historia",
     "date": "2025-01-21"
   },
   {
     "id": 3,
     "title": "Hacer ejercicios de gramática",
-    "course": "Lengua Española",
+    "type": "exam",
+    "subject": "Lengua Española",
     "date": "2025-01-21"
   },
   {
     "id": 4,
     "title": "Preparar presentación sobre el sistema solar",
-    "course": "Ciencias Naturales",
+    "type": "assignment",
+    "subject": "Ciencias Naturales",
     "date": "2025-01-21"
   },
   {
     "id": 5,
     "title": "Practicar problemas de física",
-    "course": "Física",
+    "type": "assignment",
+    "subject": "Física",
     "date": "2025-01-21"
-  },
-  {
-    "id": 15,
-    "title": "Hacer una presentación sobre el ciclo del agua",
-    "course": "Ciencias Naturales",
-    "date": "2025-01-22"
   }
 ]

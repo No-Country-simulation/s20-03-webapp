@@ -17,14 +17,27 @@ import {
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { ProfileFormSchema } from '@/validations/schemas'
+import { Textarea } from '@/components/ui/textarea'
 
-export const ProfileForm = () => {
+const userFromDb = {
+  name: 'Eduardo',
+  lastName: 'Rodríguez',
+  phone: '123456789',
+  dni: '987654321',
+  address: 'Av. Olivos 4109, B1667 KQU, Tortuguitas, Pcia. de Buenos Aires',
+  birthdate: '2003-08-21',
+}
+
+export const FormProfile = () => {
   const form = useForm<z.infer<typeof ProfileFormSchema>>({
     resolver: zodResolver(ProfileFormSchema),
     defaultValues: {
-      name: '',
-      lastName: '',
-      email: 'thisEmail@isFrom.db',
+      name: userFromDb.name,
+      lastName: userFromDb.lastName,
+      phone: userFromDb.phone,
+      dni: userFromDb.dni,
+      address: userFromDb.address,
+      birthdate: userFromDb.birthdate,
     },
   })
 
@@ -63,23 +76,61 @@ export const ProfileForm = () => {
             )}
           />
         </div>
+        <div className="flex gap-4">
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Teléfono</FormLabel>
+                <FormControl>
+                  <Input type="phone" placeholder="9 XXX XXX XXXX" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="dni"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>DNI</FormLabel>
+                <FormControl>
+                  <Input placeholder="123456789" type="number" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
         <FormField
           control={form.control}
-          name="email"
+          name="birthdate"
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Correo electrónico</FormLabel>
+              <FormLabel>Fecha de nacimiento</FormLabel>
               <FormControl>
-                <Input
-                  type="email"
-                  readOnly
-                  placeholder="email@example.com"
+                <Input type="date" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="address"
+          render={({ field }) => (
+            <FormItem className="w-full">
+              <FormLabel>Dirección</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Av. Olivos 4109, B1667 KQU, Tortuguitas, Pcia. de Buenos Aires"
+                  className="resize-none"
                   {...field}
                 />
               </FormControl>
-              <FormDescription>
-                El correo electrónico no puede ser cambiado
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

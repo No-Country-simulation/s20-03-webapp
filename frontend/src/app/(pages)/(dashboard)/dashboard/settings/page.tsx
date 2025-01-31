@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 import { Section } from '@/components/atoms/section'
-import { ProfileForm } from '@/components/organisms/profile-form'
+import { FormProfile } from '@/components/organisms/forms/form-profile'
 import { Separator } from '@/components/ui/separator'
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function ProfilePage() {
       </p>
       <Separator className="my-4" />
 
-      <ProfileForm />
+      <FormProfile />
     </Section>
   )
 }

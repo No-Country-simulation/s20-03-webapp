@@ -1,9 +1,7 @@
 import {
   Archive,
-  Bell,
   BookOpenCheck,
   CircleHelp,
-  Hammer,
   LayoutDashboard,
   Settings,
   Users,
@@ -17,21 +15,6 @@ export const navGroups = [
         title: 'Panel de control',
         icon: LayoutDashboard,
         url: '/dashboard',
-      },
-      {
-        title: 'Notificaciones',
-        icon: Bell,
-        url: '/dashboard/notifications',
-      },
-    ],
-  },
-  {
-    title: 'Páginas temporales',
-    items: [
-      {
-        title: 'Dialogs',
-        icon: Hammer,
-        url: '/dashboard/dialogs',
       },
     ],
   },
@@ -145,3 +128,10 @@ export const STUDY_TIPS = [
   'Duerme lo suficiente: Asegúrate de descansar adecuadamente; el sueño es crucial para el aprendizaje y la memoria.',
   'Sé amable contigo mismo: No te castigues por los errores; aprende de ellos y sigue adelante con una actitud positiva.',
 ]
+
+export const textRoles = {
+  schoolAdmin: 'Coordinador',
+  teacher: 'Profesor',
+  student: 'Estudiante',
+  parent: 'Tutor',
+} as const
