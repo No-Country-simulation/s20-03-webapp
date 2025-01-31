@@ -39,7 +39,7 @@ export function DataTable<TData, TValue>({
             <Table className=" flex flex-col justify-between ">
                 <TableHeader className="flex justify-between" >
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow  className="flex justify-between gap-28 lg:gap-44" key={headerGroup.id}>
+                        <TableRow  className="flex justify-between gap-28 lg:gap-96 2xl:gap-[30rem] " key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
                                     <TableHead className="" key={header.id}>
