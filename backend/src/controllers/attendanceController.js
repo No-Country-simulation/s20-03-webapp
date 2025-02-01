@@ -5,30 +5,12 @@ const attendanceModel = require('../db/models/attendanceModel')
 const responses = require('../utils/responses');
 
 const attendanceController = {
-    // getCourses: async (req, res) => {
-    //     try {
-    //         const courses = await courseModel.find().populate({
-    //             path: 'levels',
-    //             select: 'title description',
-    //             populate: {
-    //                 path: 'subjects',
-    //                 select: 'title description',
-    //             },
-    //         });
-    //         if (!courses) {
-    //             return res.status(responses.common.noContent.status).json(responses.common.noContent);
-    //         }
-    //         res.status(responses.common.success.status).json(responses.common.payload(courses));
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.status(responses.common.badRequest.status).json(responses.common.badRequest);
-    //     }
-    // },
     newAttendance: async (req, res) => {
-        const { groupId, students } = req.body;
+        const { groupId, subjectId, students } = req.body;
         try {
-            const newCourse = await attendanceModel.create({ groupId, students });
-            res.status(responses.common.success.status).json(responses.common.payload(newCourse));
+            const attendance = await attendanceModel.create({ groupId, subjectId, students });
+            console.log(attendance);
+            res.status(responses.common.success.status).json(responses.common.payload(attendance));
         } catch (error) {
             if (error.code === 11000) {
                 return res.status(responses.common.conflict.status).json(responses.common.conflict);
@@ -36,44 +18,6 @@ const attendanceController = {
             res.status(responses.common.badRequest.status).json(responses.common.badRequest);
         }
     },
-    // addLevel: async (req, res) => {
-    //     const { courseId, levelId } = req.body;
-    //     try {
-    //         const course = await courseModel.findById(courseId);
-    //         const level = await levelModel.findById(levelId);
-    //         if (!course || !level) {
-    //             return res.status(responses.common.notFound.status).json(responses.common.notFound);
-    //         }
-    //         if (course.levels.includes(levelId)) {
-    //             return res.status(responses.common.conflict.status).json(responses.common.conflict);
-    //         }
-    //         course.levels.push(levelId);
-    //         const newCourse = await course.save();
-    //         res.status(responses.common.success.status).json(responses.common.payload(newCourse));
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
-    //     }
-    // },
-    // remLevel: async (req, res) => {
-    //     const { courseId, levelId } = req.body;
-    //     try {
-    //         const course = await courseModel.findById(courseId);
-    //         const level = await levelModel.findById(levelId);
-    //         if (!course || !level) {
-    //             return res.status(responses.common.notFound.status).json(responses.common.notFound);
-    //         }
-    //         if (!course.grades.includes(levelId)) {
-    //             return res.status(responses.common.notFound.status).json(responses.common.notFound);
-    //         }
-    //         course.levels = course.levels.filter((level) => level._id === levelId);
-    //         const newCourse = await course.save();
-    //         res.status(responses.common.success.status).json(responses.common.payload(newCourse));
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.status(responses.common.internalServerError.status).json(responses.common.internalServerError);
-    //     }
-    // },
 };
 
 module.exports = attendanceController;

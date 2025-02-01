@@ -44,6 +44,7 @@ const studentsController = {
     
             // 1️⃣ Verificar si el grupo existe
             const group = await groupModel.findById(groupId);
+            console.log(group)
             if (!group) {
                 return res.status(404).json({ message: 'El grupo no existe.' });
             }
