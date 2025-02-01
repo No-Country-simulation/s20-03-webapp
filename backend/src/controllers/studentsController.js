@@ -3,6 +3,7 @@ const levelModel = require('../db/models/levelModel');
 const subjectModel = require('../db/models/subjectModel');
 const groupModel = require('../db/models/groupModel');
 const attendanceModel = require('../db/models/attendanceModel');
+const gradingModel = require('../db/models/gradingModel');
 const responses = require('../utils/responses');
 const mongoose = require('mongoose'); // Importar Mongoose
 
@@ -80,7 +81,49 @@ const studentsController = {
             res.status(500).json({ message: 'Error interno del servidor' });
         }
     },
+    getStudentGrading: async (req, res) => {
+        try {
+            const studentId = req.user.id; // ID del estudiante autenticado
+            const {groupId, subjectId } = req.body; // IDs del grupo y materia
     
+            // 1️⃣ Verificar si el grupo existe
+            const group = await groupModel.findById(groupId);
+            console.log(group)
+            if (!group) {
+                return res.status(404).json({ message: 'El grupo no existe.' });
+            }
+    
+            // 2️⃣ Buscar examenes del estudiante en esa materia
+            const gradings = await gradingModel.find({
+                groupId: groupId,
+                subjectId: subjectId,
+                "students.student": studentId // Filtrar dentro del array de estudiantes
+            })
+            .populate("subjectId", "title") // Obtener solo el nombre de la materia
+            .sort({ date: -1 }); // Ordenar por fecha descendente
+    
+            // 3️⃣ Validar si hay asistencias registradas
+            if (gradings.length === 0) {
+                return res.status(404).json({ message: 'No hay examenes y/o trabajos prácticos registradas para esta materia.' });
+            }
+    
+            // 4️⃣ Formatear la respuesta para mostrar solo lo necesario
+            const formattedGradings = gradings.map(grading => {
+                const studentRecord = grading.students.find(s => s.student.toString() === studentId);
+                return {
+                    date: grading.date,
+                    subject: grading.subjectId.title, // Nombre de la asignatura
+                    grade: studentRecord ? studentRecord.grade : 'unknown'
+                };
+            });
+    
+            res.json({ gradings: formattedGradings });
+    
+        } catch (error) {
+            console.error('Error al obtener examenes del estudiante:', error);
+            res.status(500).json({ message: 'Error interno del servidor' });
+        }
+    },
     
 }
 
