@@ -2,7 +2,9 @@ const courseModel = require('../db/models/courseModel');
 const levelModel = require('../db/models/levelModel');
 const subjectModel = require('../db/models/subjectModel');
 const groupModel = require('../db/models/groupModel');
+const attendanceModel = require('../db/models/attendanceModel');
 const responses = require('../utils/responses');
+const mongoose = require('mongoose'); // Importar Mongoose
 
 
 const studentsController = {
@@ -37,19 +39,48 @@ const studentsController = {
     },
     getStudentAttendances: async (req, res) => {
         try {
-            const studentId = req.user.id
-            const courses = await groupModel.findById(groupId);
-            console.log(courses);
-            if (!courses) {
-                return res.status(responses.common.noContent.status).json(responses.common.noContent);
+            const studentId = req.user.id; // ID del estudiante autenticado
+            const { groupId, subjectId } = req.body; // IDs del grupo y materia
+    
+            // 1️⃣ Verificar si el grupo existe
+            const group = await groupModel.findById(groupId);
+            if (!group) {
+                return res.status(404).json({ message: 'El grupo no existe.' });
             }
-            res.status(responses.common.success.status).json(responses.common.payload(courses));
-            res.json({ message: "Las asistencias" }); // Respuesta JSON simple
+    
+            // 2️⃣ Buscar asistencias del estudiante en esa materia
+            const attendances = await attendanceModel.find({
+                groupId: groupId,
+                subjectId: subjectId,
+                "students.student": studentId // Filtrar dentro del array de estudiantes
+            })
+            .populate("subjectId", "title") // Obtener solo el nombre de la materia
+            .sort({ date: -1 }); // Ordenar por fecha descendente
+    
+            // 3️⃣ Validar si hay asistencias registradas
+            if (attendances.length === 0) {
+                return res.status(404).json({ message: 'No hay asistencias registradas para esta materia.' });
+            }
+    
+            // 4️⃣ Formatear la respuesta para mostrar solo lo necesario
+            const formattedAttendances = attendances.map(attendance => {
+                const studentRecord = attendance.students.find(s => s.student.toString() === studentId);
+                return {
+                    date: attendance.date,
+                    subject: attendance.subjectId.title, // Nombre de la asignatura
+                    status: studentRecord ? studentRecord.status : 'unknown'
+                };
+            });
+    
+            res.json({ attendances: formattedAttendances });
+    
         } catch (error) {
-            console.error(error);
-            res.status(responses.common.badRequest.status).json(responses.common.badRequest);
+            console.error('Error al obtener asistencias del estudiante:', error);
+            res.status(500).json({ message: 'Error interno del servidor' });
         }
     },
+    
+    
 }
 
 
