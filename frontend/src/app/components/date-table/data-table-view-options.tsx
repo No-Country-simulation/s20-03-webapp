@@ -1,7 +1,8 @@
 'use client'
 
-const names = {
+const COLUMNS_OPTIONS = {
   name: 'Nombre',
+  dni: 'DNI',
   email: 'Correo electrónico',
   phone: 'Teléfono',
   status: 'Status',
@@ -52,7 +53,7 @@ export function DataTableViewOptions<TData>({
                 checked={column.getIsVisible()}
                 onCheckedChange={value => column.toggleVisibility(!!value)}
               >
-                {names[column.id as keyof typeof names]}
+                {COLUMNS_OPTIONS[column.id as keyof typeof COLUMNS_OPTIONS]}
               </DropdownMenuCheckboxItem>
             )
           })}

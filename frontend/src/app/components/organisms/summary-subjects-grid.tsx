@@ -8,14 +8,23 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import SUBJECTS_JSON from '@/data/subjects.json'
+import { cn } from '@/lib/utils'
 
-export const SummarySubjectsGrid = () => {
+interface SummarySubjectsGridProps {
+  className?: string
+  randomTips?: boolean
+}
+
+export const SummarySubjectsGrid = ({
+  className,
+  randomTips = false,
+}: SummarySubjectsGridProps) => {
   return (
-    <Card className="h-fit sm:col-span-1 lg:col-span-2">
+    <Card className={cn('h-fit w-full', className)}>
       <CardHeader>
         <CardTitle className="text-lg">Resumen de asignaturas</CardTitle>
       </CardHeader>
-      <CardContent className="grid-rows-auto grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <CardContent className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {SUBJECTS_JSON.map(subject => (
           <SubjectCard
             key={subject.id}
@@ -26,9 +35,11 @@ export const SummarySubjectsGrid = () => {
           />
         ))}
       </CardContent>
-      <CardFooter>
-        <RandomTipAlert />
-      </CardFooter>
+      {randomTips && (
+        <CardFooter>
+          <RandomTipAlert />
+        </CardFooter>
+      )}
     </Card>
   )
 }

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 
 import { Section } from '@/components/atoms/section'
 import { Separator } from '@/components/ui/separator'
+import { ThemeSwitcher } from '@/components/organisms/theme-switcher'
 
 export const metadata: Metadata = {
   title: 'Apariencia',
@@ -17,6 +18,7 @@ export default function AppearancePage() {
           entre los temas claro y oscuro.
         </p>
         <Separator className="my-4" />
+        <ThemeSwitcher />
       </Section>
     </>
   )
