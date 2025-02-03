@@ -23,7 +23,7 @@ export default function CreateTask() {
       <form className="px-5 flex flex-col gap-2">
         {/* Input para el nombre de la tarea */}
         <div className="mt-3">
-          <label htmlFor="taskName">Titulo de la Tarea / Examen</label>
+          <label htmlFor="taskName">Titulo de la Tarea</label>
           <Input id="taskName" className='mt-4' />
         </div>
 

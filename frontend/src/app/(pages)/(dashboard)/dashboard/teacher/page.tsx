@@ -10,7 +10,6 @@ import { useState } from 'react'
 import { Card, CardContent, CardHeader } from '#/src/app/components/ui/card'
 import { Button } from '#/src/app/components/ui/button'
 import { motion, AnimatePresence } from "framer-motion"
-import { Textarea } from '#/src/app/components/ui/textarea'
 
 export default function TeacherPage() {
   const studentNames = payments.map(payment => payment.alumnName)
@@ -110,7 +109,7 @@ export default function TeacherPage() {
         </div>
 
         
-        <Card className='h-[758px] flex flex-col items-center p-5 gap-7 overflow-y-auto'>
+        <Card className='h-[765px] flex flex-col items-center p-5 gap-7 overflow-y-auto'>
             <h2 >Recordatorios de Comision</h2>
             <Card className='w-[90%] p-5'>
               <CardHeader>Tarea: Titulo de la tarea</CardHeader>
