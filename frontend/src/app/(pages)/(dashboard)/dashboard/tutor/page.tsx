@@ -88,10 +88,10 @@ export default function DeshboardTutor(){
                     />
             
             </section>
-            <section className="lg:col-span-2 lg:w-[930px] 2xl:w-[1000px] lg:mt-10 xl:mt-0">
+            <section className="lg:col-span-2 lg:w-[740px] xl:w-[930px] 2xl:w-[1000px] lg:mt-10 xl:mt-0">
                 <div className="h-[770px] lg:overflow-y-auto scroll-container ">
                     {materias.map((materia, materiaIndex) => (
-                        <Card key={materiaIndex} className="shadow-md  w-80 xl:w-[67%] 2xl:w-full lg:h-32 lg:flex lg:flex-col lg:justify-center lg:items-center lg:px-5 mb-8 pb-10 pt-10 lg:pt-0 lg:pb-0  lg:ml-0 xl:ml-10 2xl:ml-0">
+                        <Card key={materiaIndex} className="shadow-md  w-80 lg:w-full xl:w-[67%] 2xl:w-full lg:h-32 lg:flex lg:flex-col lg:justify-center lg:items-center lg:px-5 mb-8 pb-10 pt-10 lg:pt-0 lg:pb-0  lg:ml-0 xl:ml-10 2xl:ml-0">
                             <div className="flex flex-col items-center lg:gap-0 lg:flex-row lg:justify-between lg:w-full">
                                 <h2 className="text-xl 2xl:text-2xl">{materia.nombre}</h2>
                                 <p className="text-xl 2xl:text-xl">{materia.dias}</p>
@@ -101,9 +101,9 @@ export default function DeshboardTutor(){
                                             key={trabajoIndex}
                                             className={`w-44 lg:w-52 h-8  font-bold mt-5 mb-5 lg:mb-0 lg:mt-0 ${
                                                 trabajoIndex === 0
-                                                    ? "bg-violet-500 text-white xl:w-52 xl:text-xs"
+                                                    ? "bg-violet-500 text-white xl:w-52 lg:text-xs xl:text-xs"
                                                     : "text-violet-500 shadow-[inset_1px_3px_10px_rgba(0,0,0,0.5)]"
-                                            } rounded-full flex justify-center items-center xl:text-xs`}
+                                            } rounded-full flex justify-center items-center lg:text-xs xl:text-xs`}
                                         >
                                             {trabajo}
                                             
@@ -119,8 +119,8 @@ export default function DeshboardTutor(){
                                             key={index}
                                             className={`${
                                                 isBigCircle
-                                                    ? "w-44 lg:w-8 xl:w-6 2xl:w-16 lg:h-16 text-violet-500"
-                                                    : "w-44 lg:w-8 xl:w-6 2xl:w-12 lg:h-12 bg-violet-500 text-white" 
+                                                    ? "w-44 lg:w-8 xl:w-6 2xl:w-16 lg:h-16 lg:text-xs xl:text-xl text-violet-500"
+                                                    : "w-44 lg:w-8 xl:w-6 2xl:w-12 lg:h-12 lg:text-xs xl:text-xl bg-violet-500 text-white" 
                                             } shadow-[inset_1px_3px_10px_rgba(0,0,0,0.5)] lg:rounded-full z-10 flex justify-center items-center`}
                                         >
                                             <span className="2xl:text-2xl font-bold">
