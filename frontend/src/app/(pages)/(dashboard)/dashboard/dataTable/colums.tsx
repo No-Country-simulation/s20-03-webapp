@@ -25,7 +25,7 @@ export const columns: ColumnDef<Payment>[] = [
 
   {
     accessorKey: 'status',
-    header: () => <div className="text-right pr-4">Presentism</div>,
+    header: () => <div className="pr-4 text-right">Presentism</div>,
     cell: ({ row }) => {
       const [isChecked, setIsChecked] = useState(
         row.original.status === 'success'
@@ -38,7 +38,7 @@ export const columns: ColumnDef<Payment>[] = [
       }
 
       return (
-        <div className="flex w-5 ml-28 items-center justify-start">
+        <div className="ml-28 flex w-5 items-center justify-start">
           <Checkbox
             checked={isChecked}
             onCheckedChange={checked =>
