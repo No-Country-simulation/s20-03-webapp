@@ -22,33 +22,33 @@ export const HEADER_LINKS = [
 export const FAQs = [
   {
     id: 1,
-    question: 'Question text goes here',
+    question: '¿Qué es ClassRun?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Es una plataforma web diseñada para facilitar el seguimiento académico de estudiantes de nivel primario y secundario. Permite a instituciones, docentes, padres y estudiantes acceder a herramientas avanzadas de gestión y comunicación en tiempo real.',
   },
   {
     id: 2,
-    question: 'Question text goes here',
+    question: '¿Cómo funciona la demo?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Te damos acceso a una versión funcional de nuestra plataforma para que explores sus beneficios por 14 días.',
   },
   {
     id: 3,
-    question: 'Question text goes here',
+    question: '¿Cómo protegemos los datos escolares?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Cumplimos con estándares internacionales de seguridad y garantizamos la privacidad de la información.',
   },
   {
     id: 4,
-    question: 'Question text goes here',
+    question: '¿Cómo puede beneficiar a las instituciones educativas?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Nuestra plataforma centraliza la gestión académica en un solo lugar. Facilita el registro de calificaciones, la gestión de asistencia, y la comunicación con padres y estudiantes, optimizando procesos administrativos y ahorrando tiempo',
   },
   {
     id: 5,
-    question: 'Question text goes here',
+    question: '¿Qué dispositivos son compatibles con la plataforma?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'La plataforma es accesible desde cualquier dispositivo con conexión a internet, ya sea una computadora, tablet o smartphone.',
   },
 ]
 

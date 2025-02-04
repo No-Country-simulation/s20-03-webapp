@@ -23,12 +23,7 @@ export const FaqSection = () => {
           {`Preguntas más frecuentes ordenadas por popularidad.`}
         </p>
       </div>
-      <Accordion
-        type="multiple"
-        className="w-full"
-        // This array represents the currently open items by default
-        defaultValue={['item-1', 'item-2', 'item-3', 'item-4', 'item-5']}
-      >
+      <Accordion type="multiple" className="w-full">
         {FAQs.map(faq => (
           <AccordionItem
             key={faq.id}
@@ -45,10 +40,10 @@ export const FaqSection = () => {
 
       <div className="flex flex-col items-center gap-6">
         <h3 className="text-center text-lg font-bold md:text-xl lg:text-2xl">
-          {`¿Tiene alguna pregunta?`}
+          {`¿Todavía tienes preguntas?`}
         </h3>
         <p className="text-center">
-          {`Support details to capture customers that might be on the fence.`}
+          {`Estamos aquí para ayudarte a resolver cualquier duda. Contáctanos o consulta nuestras preguntas frecuentes`}
         </p>
         <Button variant="outline" size="lg" asChild className="w-fit">
           <Link href="/contact">¡Contáctanos!</Link>
