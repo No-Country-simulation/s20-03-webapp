@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "title": "Entrega de Tarea",
+      "studentName": "Juan Pérez",
+      "commission": "A",
+      "subject": "Matemáticas",
+      "type": "assignment",
+      "date": "2023-10-05"
+    },
+    {
+      "id": 2,
+      "title": "Entrega de Examen",
+      "studentName": "María Gómez",
+      "commission": "B",
+      "subject": "Historia",
+      "type": "exam",
+      "date": "2023-10-07"
+    }
+  ]
