@@ -1,0 +1,16 @@
+/* Estilos personalizados para el scroll */
+.scroll-container {
+    scrollbar-width: thin; /* Para navegadores que soportan scrollbar-width */
+    scrollbar-color: #cbd5e0 transparent; /* Color del thumb (barra) y track (fondo) */
+}
+
+/* Estilos para navegadores WebKit (Chrome, Safari, etc.) */
+.scroll-container::-webkit-scrollbar {
+    width: 2px; /* Ancho de la barra de scroll */
+}
+
+
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #fff; /* Color de la barra al hacer hover */
+}
