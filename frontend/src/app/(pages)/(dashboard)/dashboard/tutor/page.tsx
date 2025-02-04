@@ -65,7 +65,7 @@ export default function DeshboardTutor(){
     ]
 
     return(
-        <Section className='grid   2xl:grid-cols-3 mt-10 xl:flex xl:justify-center xl:items-center xl:w-full'>
+        <Section className=' flex flex-col lg:flex-row justify-center items-center lg:grid  2xl:grid-cols-3 mt-10 xl:flex xl:justify-center xl:items-center xl:w-full'>
             <section className='flex flex-col  xl:justify-start 2xl:items-start lg:w-[930px] lg:gap-72 xl:w-[30%] xl:gap-16'>
                     <Card className='mb-10 lg:mb-0 w-80 h-80 flex flex-col justify-center items-center gap-5  shadow-md'>
                         <CardTitle className='mt-5 text-3xl'>
