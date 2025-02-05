@@ -1,46 +1,78 @@
-'use client'
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { SignInFormSchema } from '@/validations/schemas'
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+// Esquema de validación con Zod
+const SignInSchema = z.object({
+  username: z.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres."),
+  password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres."),
+});
 
 export const FormSignIn = () => {
-  const form = useForm<z.infer<typeof SignInFormSchema>>({
-    resolver: zodResolver(SignInFormSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  })
+  const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const onSubmit = form.handleSubmit(data => {
-    alert(JSON.stringify(data, undefined, 2))
-  })
+  const form = useForm<z.infer<typeof SignInSchema>>({
+    resolver: zodResolver(SignInSchema),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
+    setErrorMessage(""); // Limpiar mensaje de error previo
+
+    try {
+      const response = await fetch("https://s20-03-webapp-production.up.railway.app/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Credenciales incorrectas");
+      }
+
+      const result = await response.json();
+      console.log("Token recibido:", result.token); // Puedes guardar el token en localStorage o contexto
+
+      router.push("/dashboard"); // Redirigir después del login
+
+    } catch (error: any) {
+      setErrorMessage(error.message || "Error al iniciar sesión");
+    }
+  };
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="w-full max-w-md space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-md space-y-6">
         <FormField
           control={form.control}
-          name="email"
+          name="username"
           render={({ field }) => (
-            <FormItem className="w-full">
-              <FormLabel>Correo electrónico</FormLabel>
+            <FormItem>
+              <FormLabel>Usuario</FormLabel>
               <FormControl>
-                <Input placeholder="example@gmail.com" {...field} />
+                <Input placeholder="Tu usuario" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -50,22 +82,21 @@ export const FormSignIn = () => {
           control={form.control}
           name="password"
           render={({ field }) => (
-            <FormItem className="w-full">
+            <FormItem>
               <FormLabel>Contraseña</FormLabel>
               <FormControl>
                 <Input type="password" placeholder="********" {...field} />
               </FormControl>
-              <FormDescription>
-                La contraseña debe tener al menos 8 caracteres.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+        {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
         <Button type="submit" className="w-full">
           Iniciar sesión
         </Button>
       </form>
     </Form>
-  )
-}
+  );
+};
+
