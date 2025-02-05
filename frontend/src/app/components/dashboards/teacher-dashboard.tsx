@@ -87,7 +87,7 @@ const UPCOMING_EXAMS = [
 
 export const TeacherDashboard = () => {
   return (
-    <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-20">
       <div className="flex flex-col gap-4 sm:col-span-1 lg:col-span-2">
         {/* Tarjeta dividida en dos columnas */}
         <Card className="h-[500px] w-full"> {/* Alto aumentado */}
