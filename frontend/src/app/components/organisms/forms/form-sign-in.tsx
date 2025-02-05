@@ -1,5 +1,5 @@
 "use client";
-
+import axiosInstance from "@/lib/axiosInstance";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -35,32 +35,51 @@ export const FormSignIn = () => {
     },
   });
 
-  const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
-    setErrorMessage(""); // Limpiar mensaje de error previo
-
+  const onSubmit = async (data: { username: string; password: string }) => {
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          credentials: "include",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error("Credenciales incorrectas");
-      }
-
-      const result = await response.json();
-      console.log("Token recibido:", result.token); // Puedes guardar el token en localStorage o contexto
-
-      router.push("/dashboard"); // Redirigir después del login
-
+      const response = await axiosInstance.post("/auth/login", data);
+  
+      localStorage.setItem("token", response.data.token);
+      console.log("Login exitoso:", response.data);
+  
+      router.push("/dashboard"); // Redirige después del login
     } catch (error: any) {
-      setErrorMessage(error.message || "Error al iniciar sesión");
+      setErrorMessage(error.response?.data?.message || "Error al iniciar sesión");
+      console.error("Error en el login:", error);
     }
   };
+  
+
+  // const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
+  //   setErrorMessage(""); // Limpiar mensaje de error previo
+
+  //   try {
+  //     const response = await fetch("http://localhost:3000/auth/login", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         credentials: "include",
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error("Credenciales incorrectas");
+  //     }
+
+  //     const result = await response.json();
+  //     console.log("Token recibido:", result); // Puedes guardar el token en localStorage o contexto
+
+  //     // if(result.token.role === 'student'){
+  //     //   router.push("/student/dashboard");  
+  //     // }
+
+  //     router.push("/dashboard"); // Redirigir después del login
+
+  //   } catch (error: any) {
+  //     setErrorMessage(error.message || "Error al iniciar sesión");
+  //   }
+  // };
 
   return (
     <Form {...form}>
