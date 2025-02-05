@@ -33,14 +33,15 @@ export const ProfileFormSchema = z
     path: ['security_emails'],
   })
 
-export const SignInFormSchema = z.object({
-  email: z.string().email({
-    message: 'El correo electrónico debe ser válido',
-  }),
-  password: z.string().min(8, {
-    message: 'La contraseña debe tener al menos 8 caracteres',
-  }),
-})
+  export const SignInFormSchema = z.object({
+    username: z.string().min(3, {
+      message: 'El nombre de usuario debe tener al menos 3 caracteres',
+    }),
+    password: z.string().min(6, {
+      message: 'La contraseña debe tener al menos 6 caracteres',
+    }),
+  })
+  
 
 export const SignUpFormSchema = z.object({
   name: z.string().min(3, {

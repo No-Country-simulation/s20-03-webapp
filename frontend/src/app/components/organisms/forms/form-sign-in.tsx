@@ -3,6 +3,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
+import axiosInstance from '@/lib/axiosInstance'; // Asegúrate de importar axiosInstance correctamente
+
 
 import { Button } from '@/components/ui/button'
 import {
@@ -15,19 +19,47 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { SignInFormSchema } from '@/validations/schemas'
+
+// Esquema de validación con Zod
+const SignInFormSchema = z.object({
+  username: z.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres."),
+  password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres."),
+})
 
 export const FormSignIn = () => {
   const form = useForm<z.infer<typeof SignInFormSchema>>({
     resolver: zodResolver(SignInFormSchema),
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
   })
+  const router = useRouter()
 
-  const onSubmit = form.handleSubmit(data => {
-    alert(JSON.stringify(data, undefined, 2))
+  const onSubmit = form.handleSubmit(async (data) => {
+    // try {
+    //   const response = await axios.post(
+    //     'https://s20-03-webapp-production.up.railway.app/auth/login', 
+    //     data,
+    //     { withCredentials: true }
+    //   )
+      
+    //   localStorage.setItem('token', response.data.token) // Guarda el token en localStorage
+    //   console.log('Login exitoso:', response.data)
+    //   router.push('/dashboard') // Redirigir a dashboard después del login
+
+    // } catch (error) {
+    //   console.error('Error en el login:', error)
+    // }
+    try {
+      const response = await axiosInstance.post('/auth/login', data);  // Usa axiosInstance aquí
+
+      localStorage.setItem('token', response.data.token); // Guarda el token en localStorage
+      console.log('Login exitoso:', response.data);
+      router.push('/dashboard'); // Redirigir a dashboard después del login
+    } catch (error) {
+      console.error('Error en el login:', error);
+    }
   })
 
   return (
@@ -35,12 +67,12 @@ export const FormSignIn = () => {
       <form onSubmit={onSubmit} className="w-full max-w-md space-y-6">
         <FormField
           control={form.control}
-          name="email"
+          name="username"
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Correo electrónico</FormLabel>
+              <FormLabel>Usuario</FormLabel>
               <FormControl>
-                <Input placeholder="example@gmail.com" {...field} />
+                <Input placeholder="Tu usuario" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
