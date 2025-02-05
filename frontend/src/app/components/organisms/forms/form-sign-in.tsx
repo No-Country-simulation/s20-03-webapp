@@ -39,12 +39,12 @@ export const FormSignIn = () => {
     setErrorMessage(""); // Limpiar mensaje de error previo
 
     try {
-      const response = await fetch("https://s20-03-webapp-production.up.railway.app/auth/login", {
+      const response = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          credentials: "include",
         },
-        credentials: "include",
         body: JSON.stringify(data),
       });
 

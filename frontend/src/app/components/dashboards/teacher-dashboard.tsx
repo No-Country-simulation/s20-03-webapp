@@ -85,20 +85,21 @@ const UPCOMING_EXAMS = [
   },
 ]
 
-export const TeacherDashboard = () => {
+export const TeacherDashboard = (req: any) => {
+  // const userName = req.user.role;
   return (
     <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-20">
       <div className="flex flex-col gap-4 sm:col-span-1 lg:col-span-2">
         {/* Tarjeta dividida en dos columnas */}
         <Card className="h-[500px] w-full"> {/* Alto aumentado */}
           <CardHeader>
-            <CardTitle className="text-lg">Materias y Próximos Exámenes</CardTitle>
+            <CardTitle className="text-lg"></CardTitle>
           </CardHeader>
           <CardContent className="grid h-[calc(100%-56px)] grid-cols-1 gap-4 overflow-hidden md:grid-cols-2">
             {/* Columna 1: Materias y Horarios */}
             <div className="space-y-4 overflow-y-auto pr-2">
               <h3 className="text-sm font-medium text-muted-foreground">
-                Materias y Horarios
+                {/* {userName} */}
               </h3>
               {TEACHER_SCHEDULE.map(item => (
                 <div key={item.id} className="rounded-lg border p-4">
