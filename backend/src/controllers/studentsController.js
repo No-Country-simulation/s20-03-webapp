@@ -4,6 +4,7 @@ const subjectModel = require('../db/models/subjectModel');
 const groupModel = require('../db/models/groupModel');
 const attendanceModel = require('../db/models/attendanceModel');
 const gradingModel = require('../db/models/gradingModel');
+const homeworkModel = require('../db/models/homeworkModel');
 const responses = require('../utils/responses');
 const mongoose = require('mongoose'); // Importar Mongoose
 
@@ -121,6 +122,44 @@ const studentsController = {
     
         } catch (error) {
             console.error('Error al obtener examenes del estudiante:', error);
+            res.status(500).json({ message: 'Error interno del servidor' });
+        }
+    },
+    getStudentHomeworkByGroup: async (req, res) => {
+        try {
+            const {groupId, subjectId } = req.body; // IDs del grupo y materia
+    
+            // 1️⃣ Verificar si el grupo existe
+            const group = await groupModel.findById(groupId);
+            console.log(group)
+            if (!group) {
+                return res.status(404).json({ message: 'El grupo no existe.' });
+            }
+    
+            // 2️⃣ Buscar examenes del estudiante en esa materia
+            const homeworks = await homeworkModel.find({ groupId: groupId })
+            .sort({ date: -1 }); // Ordenar por fecha descendente
+    
+            // 3️⃣ Validar si hay asistencias registradas
+            if (homeworks.length === 0) {
+                return res.status(404).json({ message: 'No hay tareas pendientes para este grupo-comision.' });
+            }
+    
+            // 4️⃣ Formatear la respuesta para mostrar solo lo necesario
+            // const formattedGradings = gradings.map(grading => {
+            //     const studentRecord = grading.students.find(s => s.student.toString() === studentId);
+            //     return {
+            //         date: grading.date,
+            //         subject: grading.subjectId.title, // Nombre de la asignatura
+            //         grade: studentRecord ? studentRecord.grade : 'unknown'
+            //     };
+            // });
+    
+            // res.json({ gradings: formattedGradings });
+            res.json({ homeworks });
+    
+        } catch (error) {
+            console.error('Error al obtener tareas del estudiante:', error);
             res.status(500).json({ message: 'Error interno del servidor' });
         }
     },

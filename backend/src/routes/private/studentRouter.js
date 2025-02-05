@@ -5,6 +5,7 @@ const studentsController = require('../../controllers/studentsController');
 studentRouter.get('/courses', studentsController.getStudentCourses);
 studentRouter.get('/attendances', studentsController.getStudentAttendances);
 studentRouter.get('/gradings', studentsController.getStudentGrading);
+studentRouter.get('/homeworks', studentsController.getStudentHomeworkByGroup);
 
 
 studentRouter.get('*', (req, res) => {
