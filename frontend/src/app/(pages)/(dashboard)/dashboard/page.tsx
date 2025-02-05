@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 type Role = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
-let roleFromMyDatabase: Role = 'student'
+let roleFromMyDatabase: Role = 'teacher'
 
 const dashboards = {
   teacher: <TeacherDashboard />,

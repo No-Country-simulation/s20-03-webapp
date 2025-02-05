@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 import { Section } from '@/components/atoms/section'
-import { Separator } from '@/components/ui/separator'
 import { ThemeSwitcher } from '@/components/organisms/theme-switcher'
+import { Separator } from '@/components/ui/separator'
 
 export const metadata: Metadata = {
   title: 'Apariencia',
