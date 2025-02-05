@@ -14,8 +14,8 @@ const config = {
         salt: parseInt(process.env.SALT_ROUNDS),
     },
     cors: {
-        origin: process.env.CORS_ORIGIN,
-        credentials: process.env.CORS_CREDENTIALS === 'true', // Convertir a booleano si es necesario
+        origin: "http://localhost:3000",
+        credentials: true, // Convertir a booleano si es necesario
     }
 };
 
