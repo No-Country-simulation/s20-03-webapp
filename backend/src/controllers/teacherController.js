@@ -1,75 +1,137 @@
-const subjectModel = require('../db/models/subjectModel');
-const levelModel = require('../db/models/levelModel');
-const courseModel = require('../db/models/courseModel');
+const subjectModel = require("../db/models/subjectModel");
+const levelModel = require("../db/models/levelModel");
+const courseModel = require("../db/models/courseModel");
+const notificationModel = require("../db/models/notificationModel");
+const homeworkModel = require("../db/models/homeworkModel");
 
 const teacherController = {
-    getTeacherSubjects: async (req, res) => {
-        try {
-            const teacherId = req.user.id; // ID del profesor autenticado
+  getSubjectsAndHomeworks: async (req, res) => {
+    try {
+      // Paso 1: Obtener los subjects (materias) a cargo del profesor autenticado
+      const subjects = await subjectModel
+        .find({ teacherId: req.user._id })
+        .exec();
 
-            // 1️⃣ Obtener las materias del profesor
-            const subjects = await subjectModel.find({ teacherId }).select('title description _id');
+      if (subjects.length === 0) {
+        return res
+          .status(404)
+          .json({ message: "No tienes materias asignadas." });
+      }
 
-            if (!subjects.length) {
-                return res.status(404).json({ message: 'El profesor no tiene materias asignadas.' });
-            }
+      // Paso 2: Buscar las tareas relacionadas con las materias del profesor
+      const homeworks = await homeworkModel
+        .find({
+          subjectId: { $in: subjects.map((subject) => subject._id) },
+        })
+        .exec();
 
-            const subjectIds = subjects.map(sub => sub._id);
+      // Paso 3: Buscar las notificaciones relacionadas con las materias y los estudiantes
+      const notifications = await notificationModel
+        .find({
+          subjectId: { $in: subjects.map((subject) => subject._id) },
+        })
+        .populate("studentId", "name lastname") // Poblar el estudiante para obtener el nombre y apellido
+        .exec();
 
-            // 2️⃣ Buscar los niveles que contienen esas materias
-            const levels = await levelModel.find({ subjects: { $in: subjectIds } }).select('title subjects _id');
+      // Paso 4: Formatear la respuesta
+      const result = subjects.map((subject) => {
+        // Filtrar las tareas y notificaciones relacionadas con la materia
+        const subjectHomeworks = homeworks.filter(
+          (hw) => hw.subjectId.toString() === subject._id.toString()
+        );
+        const subjectNotifications = notifications.filter(
+          (notification) =>
+            notification.subjectId.toString() === subject._id.toString()
+        );
 
-            if (!levels.length) {
-                return res.status(404).json({ message: 'No se encontraron niveles asociados a estas materias.' });
-            }
+        return {
+          title: subject.title,
+          description: subject.description,
+          homeworks: subjectHomeworks.length
+            ? subjectHomeworks.map((hw) => ({
+                title: hw.title,
+                description: hw.description,
+                endDate: hw.endDate,
+              }))
+            : [], // Asegurarse de que esté vacío si no tiene tareas
+          notifications: subjectNotifications.length
+            ? subjectNotifications.map((notification) => ({
+                title: notification.title,
+                message: notification.message,
+                studentName: `${notification.studentId.name} ${notification.studentId.lastname}`,
+                subjectTitle: subject.title,
+              }))
+            : [], // Asegurarse de que esté vacío si no tiene notificaciones
+        };
+      });
 
-            // Crear un mapa de materias a niveles
-            const levelMap = {};
-            const subjectToLevelMap = {}; // Para saber a qué nivel pertenece cada materia
-            levels.forEach(level => {
-                level.subjects.forEach(subjectId => {
-                    levelMap[level._id] = level.title; // Nivel mapeado por ID
-                    subjectToLevelMap[subjectId] = level._id; // Relación materia -> nivel
-                });
-            });
+      res.status(200).json({ subjects: result });
+    } catch (err) {
+      console.error("Error en la consulta:", err);
+      res.status(500).json({ error: "Error al obtener los datos" });
+    }
+  },
 
-            const levelIds = Object.keys(levelMap); // Obtener los IDs de los niveles encontrados
+  newNotification: async (req, res) => {
+    try {
+      const { title, subjectId, studentId, message } = req.body;
+      const teacherId = req.user.id; // Se asume que el teacher está autenticado
 
-            // 3️⃣ Buscar los cursos que contienen esos niveles
-            const courses = await courseModel.find({ levels: { $in: levelIds } }).select('title levels');
+      if (!subjectId || !studentId || !message || !title) {
+        return res
+          .status(400)
+          .json({ message: "Todos los campos son requeridos." });
+      }
 
-            if (!courses.length) {
-                return res.status(404).json({ message: 'No se encontraron cursos asociados a estos niveles.' });
-            }
+      const newNotification = new notificationModel({
+        title,
+        subjectId,
+        teacherId,
+        studentId,
+        message,
+      });
 
-            // Crear un mapa de niveles a cursos
-            const courseMap = {};
-            courses.forEach(course => {
-                course.levels.forEach(levelId => {
-                    courseMap[levelId] = course.title; // Relación nivel -> curso
-                });
-            });
+      await newNotification.save();
 
-            // 5️⃣ Construir la estructura de respuesta sin duplicados
-            const subjectsTeacher = subjects.map(subject => {
-                const levelId = subjectToLevelMap[subject._id]; // Obtener el ID del nivel de la materia
-                const levelName = levelMap[levelId] || 'Nivel desconocido';
-                const courseName = courseMap[levelId] || 'Curso desconocido';
+      res.status(201).json({
+        message: "Notificación creada exitosamente.",
+        notification: newNotification,
+      });
+    } catch (error) {
+      console.error("Error al crear la notificación:", error);
+      res.status(500).json({ message: "Error interno del servidor" });
+    }
+  },
+  newNotification: async (req, res) => {
+    try {
+      const { title, subjectId, studentId, message } = req.body;
+      const teacherId = req.user.id; // Se asume que el teacher está autenticado
 
-                return {
-                    title: subject.title,
-                    description: subject.description,
-                    level: levelName,
-                    course: courseName
-                };
-            });
+      if (!subjectId || !studentId || !message || !title) {
+        return res
+          .status(400)
+          .json({ message: "Todos los campos son requeridos." });
+      }
 
-            res.json({ subjectsTeacher });
-        } catch (error) {
-            console.error('Error al obtener las materias del profesor:', error);
-            res.status(500).json({ message: 'Error interno del servidor' });
-        }
-    },
+      const newNotification = new notificationModel({
+        title,
+        subjectId,
+        teacherId,
+        studentId,
+        message,
+      });
+
+      await newNotification.save();
+
+      res.status(201).json({
+        message: "Notificación creada exitosamente.",
+        notification: newNotification,
+      });
+    } catch (error) {
+      console.error("Error al crear la notificación:", error);
+      res.status(500).json({ message: "Error interno del servidor" });
+    }
+  },
 };
 
 module.exports = teacherController;
