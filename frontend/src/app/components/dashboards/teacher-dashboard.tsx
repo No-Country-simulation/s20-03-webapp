@@ -1,141 +1,94 @@
+import { useEffect, useState } from 'react'
 import { Section } from '@/components/atoms/section'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { PendingEventsTeacher } from '../organisms/pendings-events-teacher'
 import { SummarySubjectsGridTeacher } from '../organisms/summary-subjects-grid-teacher'
 import { Clock, BookOpen, AlertCircle, MapPin } from 'lucide-react' // Iconos para horarios, materias, recordatorios y salón
+import axios from 'axios'
 
-// Datos de ejemplo para las materias y horarios del profesor
-const TEACHER_SCHEDULE = [
-  {
-    id: 1,
-    subject: 'Matemáticas',
-    schedule: 'Lunes y Miércoles, 10:00 - 12:00',
-  },
-  {
-    id: 2,
-    subject: 'Física',
-    schedule: 'Martes y Jueves, 14:00 - 16:00',
-  },
-  {
-    id: 3,
-    subject: 'Química',
-    schedule: 'Viernes, 09:00 - 11:00',
-  },
-  {
-    id: 4,
-    subject: 'Química',
-    schedule: 'Viernes, 09:00 - 11:00',
-  },
-  {
-    id: 5,
-    subject: 'Química',
-    schedule: 'Viernes, 09:00 - 11:00',
-  },
-]
-
-// Datos de ejemplo para los próximos exámenes
-const UPCOMING_EXAMS = [
-  {
-    id: 1,
-    subject: 'Matemáticas',
-    commission: '6 A',
-    date: '2023-10-15',
-    time: '09:00',
-    room: 'Aula 101',
-  },
-  {
-    id: 2,
-    subject: 'Física',
-    commission: '5 B',
-    date: '2023-10-17',
-    time: '11:00',
-    room: 'Aula 202',
-  },
-  {
-    id: 3,
-    subject: 'Historia',
-    commission: '4 C',
-    date: '2023-10-19',
-    time: '10:00',
-    room: 'Aula 303',
-  },
-  {
-    id: 4,
-    subject: 'Biología',
-    commission: '7 D',
-    date: '2023-10-21',
-    time: '08:00',
-    room: 'Aula 404',
-  },
-  {
-    id: 5,
-    subject: 'Biología',
-    commission: '7 D',
-    date: '2023-10-21',
-    time: '08:00',
-    room: 'Aula 404',
-  },
-  {
-    id: 6,
-    subject: 'Biología',
-    commission: '7 D',
-    date: '2023-10-21',
-    time: '08:00',
-    room: 'Aula 404',
-  },
-]
-
+// Componente de Dashboard para el profesor
 export const TeacherDashboard = () => {
+  const [subjectsTeacher, setSubjectsTeacher] = useState<any[]>([])
+  const [homeworks, setHomeworks] = useState<any[]>([]) // Inicializa como arreglo vacío
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  // Obtener datos de las materias, tareas y notificaciones
+  useEffect(() => {
+    const fetchTeacherData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/private/teacher/teacherData')
+        setSubjectsTeacher(response.data.subjects)
+        setHomeworks(response.data.homeworks || []) // Asegúrate de que homeworks sea un arreglo
+        setLoading(false)
+      } catch (error: any) {
+        setError('Hubo un error al cargar los datos.')
+        setLoading(false)
+      }
+    }
+
+    fetchTeacherData()
+  }, [])
+
   return (
     <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-20">
       <div className="flex flex-col gap-4 sm:col-span-1 lg:col-span-2">
         {/* Tarjeta dividida en dos columnas */}
-        <Card className="h-[500px] w-full"> {/* Alto aumentado */}
+        <Card className="h-[500px] w-full">
           <CardHeader>
-            <CardTitle className="text-lg">Materias y Próximos Exámenes</CardTitle>
+            <CardTitle className="text-lg">Materias y Tareas Publicadas</CardTitle>
           </CardHeader>
           <CardContent className="grid h-[calc(100%-56px)] grid-cols-1 gap-4 overflow-hidden md:grid-cols-2">
             {/* Columna 1: Materias a cargo */}
             <div className="space-y-4 overflow-y-auto pr-2">
-              <h3 className="text-sm font-medium text-muted-foreground">
-                Materias a cargo
-              </h3>
-              {TEACHER_SCHEDULE.map(item => (
-                <div key={item.id} className="rounded-lg border p-4">
-                  <div className="flex items-center gap-2 text-sm font-medium">
-                    <BookOpen className="h-4 w-4 text-muted-foreground" /> {/* Icono de materia */}
-                    <span>{item.subject}</span>
-                  </div>
-                  <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4 text-muted-foreground" /> {/* Icono de horario */}
-                    <span>{item.schedule}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+              <h3 className="text-sm font-medium text-muted-foreground">Materias a cargo</h3>
 
-            {/* Columna 2: Próximos Exámenes */}
-            <div className="space-y-4 overflow-y-auto pr-2">
-              <h3 className="text-sm font-medium text-muted-foreground">
-                Próximos Exámenes
-              </h3>
-              {UPCOMING_EXAMS.map(exam => (
-                <div key={exam.id} className="rounded-lg border p-4">
-                  <div className="flex items-center gap-2 text-sm font-medium">
-                    <AlertCircle className="h-4 w-4 text-muted-foreground" /> {/* Icono de recordatorio */}
-                    <span>{exam.subject}</span>
-                  </div>
-                  <div className="mt-2 space-y-1 text-sm text-muted-foreground">
-                    <p>Comisión: {exam.commission}</p>
-                    <p>Fecha: {exam.date}</p>
-                    <p>Hora: {exam.time}</p>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-muted-foreground" /> {/* Icono de salón */}
-                      <span>Salón: {exam.room}</span>
+              {loading ? (
+                <p>Cargando...</p>
+              ) : error ? (
+                <p className="text-red-500">{error}</p>
+              ) : Array.isArray(subjectsTeacher) && subjectsTeacher.length === 0 ? (
+                <p>No tienes materias asignadas.</p>
+              ) : (
+                subjectsTeacher.map((subject, index) => (
+                  <div key={index} className="rounded-lg border p-4">
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <BookOpen className="h-4 w-4 text-muted-foreground" />
+                      <span>{subject.title}</span>
+                    </div>
+                    <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                      <Clock className="h-4 w-4 text-muted-foreground" />
+                      <span>{subject.level} - {subject.course}</span>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
+            </div>
+
+            {/* Columna 2: Tareas publicadas */}
+            <div className="space-y-4 overflow-y-auto pr-2">
+              <h3 className="text-sm font-medium text-muted-foreground">Tareas publicadas</h3>
+
+              {loading ? (
+                <p>Cargando...</p>
+              ) : error ? (
+                <p className="text-red-500">{error}</p>
+              ) : Array.isArray(homeworks) && homeworks.length === 0 ? (
+                <p>No tienes tareas publicadas.</p>
+              ) : (
+                homeworks.map((homework, index) => (
+                  <div key={index} className="rounded-lg border p-4">
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <AlertCircle className="h-4 w-4 text-muted-foreground" />
+                      <span>{homework.title}</span>
+                    </div>
+                    <div className="mt-2 space-y-1 text-sm text-muted-foreground">
+                      <p>{homework.description}</p>
+                      <p>Fecha de vencimiento: {new Date(homework.endDate).toLocaleDateString()}</p>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </CardContent>
         </Card>
