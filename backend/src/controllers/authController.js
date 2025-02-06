@@ -32,6 +32,10 @@ const authController = {
             res.status(responses.common.internalServerError).json(responses.common.internalServerError);
         }
     },
+    logout: async (req, res) => {
+        res.clearCookie('token', { path: '/' }) // Elimina la cookie del navegador
+        res.status(200).json({ message: 'Logout exitoso' })
+    },
     register: async (req, res) => {
         try {
             const { username, password, name, lastname, birthdate, phonenumber, role, email, address, avatar} = req.body;

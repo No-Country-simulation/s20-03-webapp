@@ -7,6 +7,7 @@ import { jwtDecode } from 'jwt-decode'
 import { ParentDashboard } from '@/components/dashboards/parent-dashboard'
 import { StudentDashboard } from '@/components/dashboards/student-dashboard'
 import { TeacherDashboard } from '@/components/dashboards/teacher-dashboard'
+import { AdminDashboard } from '#/src/app/components/dashboards/admin-dashboard'
 
 type Role = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
 
@@ -14,6 +15,7 @@ const dashboards = {
   teacher: <TeacherDashboard />,
   student: <StudentDashboard />,
   parent: <ParentDashboard />,
+  schoolAdmin: <AdminDashboard/>,
 }
 
 export default function DashboardPage() {
