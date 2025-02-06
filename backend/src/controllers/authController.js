@@ -26,7 +26,7 @@ const authController = {
                 role: user.role
             };
             res.cookie('token', token, { httpOnly: true });
-            res.status(responses.common.success.status).json(responses.common.payload(payload));
+            res.status(responses.common.success.status).json({token, payload});
         } catch (error) {
             console.error(error);
             res.status(responses.common.internalServerError).json(responses.common.internalServerError);

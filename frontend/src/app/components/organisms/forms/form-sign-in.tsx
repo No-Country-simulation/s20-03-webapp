@@ -23,7 +23,7 @@ import { Input } from '@/components/ui/input'
 // Esquema de validación con Zod
 const SignInFormSchema = z.object({
   username: z.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres."),
-  password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres."),
+  password: z.string().min(6, "La contraseña debe tener al menos 6 caracteres."),
 })
 
 export const FormSignIn = () => {
@@ -37,28 +37,26 @@ export const FormSignIn = () => {
   const router = useRouter()
 
   const onSubmit = form.handleSubmit(async (data) => {
-    // try {
-    //   const response = await axios.post(
-    //     'https://s20-03-webapp-production.up.railway.app/auth/login', 
-    //     data,
-    //     { withCredentials: true }
-    //   )
-      
-    //   localStorage.setItem('token', response.data.token) // Guarda el token en localStorage
-    //   console.log('Login exitoso:', response.data)
-    //   router.push('/dashboard') // Redirigir a dashboard después del login
+    axios.defaults.withCredentials = true; // this allows cookies globally
 
-    // } catch (error) {
-    //   console.error('Error en el login:', error)
-    // }
     try {
-      const response = await axiosInstance.post('/auth/login', data);  // Usa axiosInstance aquí
-
-      localStorage.setItem('token', response.data.token); // Guarda el token en localStorage
+      const response = await axios.post(
+        'http://localhost:5000/auth/login', // Cambia a tu puerto local del backend
+        data,
+      )
       console.log('Login exitoso:', response.data);
-      router.push('/dashboard'); // Redirigir a dashboard después del login
+
+      if (!response.data.token) {
+        console.error('Error: No se recibió un token del backend')
+        return
+      }
+      
+      localStorage.setItem('token', response.data.token); // Guarda el token en localStorage
+
+      router.push('/dashboard') // Redirigir a dashboard teacher
+
     } catch (error) {
-      console.error('Error en el login:', error);
+      console.error('Error en el login:', error)
     }
   })
 
