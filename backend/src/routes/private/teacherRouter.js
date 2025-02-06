@@ -9,7 +9,7 @@ const teacherController = require('../../controllers/teacherController');
 teacherRouter.post('/attendance', attendanceController.newAttendance);
 teacherRouter.post('/grading/create', gradingController.newGrading);
 teacherRouter.post('/homework/create', homeworkController.newHomework);
-teacherRouter.post('/subjects', teacherController.getTeacherSubjects);
+teacherRouter.get('/subjects', teacherController.getTeacherSubjects);
 
 teacherRouter.get('/', (req, res) => {
     res.status(responses.common.success.status).json(responses.common.success);

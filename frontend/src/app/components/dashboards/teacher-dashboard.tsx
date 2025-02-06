@@ -95,10 +95,10 @@ export const TeacherDashboard = () => {
             <CardTitle className="text-lg">Materias y Próximos Exámenes</CardTitle>
           </CardHeader>
           <CardContent className="grid h-[calc(100%-56px)] grid-cols-1 gap-4 overflow-hidden md:grid-cols-2">
-            {/* Columna 1: Materias y Horarios */}
+            {/* Columna 1: Materias a cargo */}
             <div className="space-y-4 overflow-y-auto pr-2">
               <h3 className="text-sm font-medium text-muted-foreground">
-                Materias y Horarios
+                Materias a cargo
               </h3>
               {TEACHER_SCHEDULE.map(item => (
                 <div key={item.id} className="rounded-lg border p-4">
