@@ -6,7 +6,7 @@ studentRouter.get('/courses', studentsController.getStudentCourses);
 studentRouter.get('/attendances', studentsController.getStudentAttendances);
 studentRouter.get('/gradings', studentsController.getStudentGrading);
 studentRouter.get('/homeworks', studentsController.getStudentHomeworkByGroup);
-
+studentRouter.get('/studentData', studentsController.getSubjectsHomeworksAndNotif);
 
 studentRouter.get('*', (req, res) => {
     console.log(req.url);

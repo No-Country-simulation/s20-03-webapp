@@ -5,11 +5,11 @@ const notificationModel = require("../db/models/notificationModel");
 const homeworkModel = require("../db/models/homeworkModel");
 
 const teacherController = {
-  getSubjectsAndHomeworks: async (req, res) => {
+  getSubjectsHomeworksAndNotif: async (req, res) => {
     try {
       // Paso 1: Obtener los subjects (materias) a cargo del profesor autenticado
       const subjects = await subjectModel
-        .find({ teacherId: req.user._id })
+        .find({ teacherId: { $exists: true, $eq: req.user.id} })
         .exec();
 
       if (subjects.length === 0) {
@@ -64,7 +64,7 @@ const teacherController = {
             : [], // Asegurarse de que esté vacío si no tiene notificaciones
         };
       });
-
+      console.log(subjects);
       res.status(200).json({ subjects: result });
     } catch (err) {
       console.error("Error en la consulta:", err);
