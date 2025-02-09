@@ -128,14 +128,11 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
   </tr>
   <tr>
     <td align="center"><strong>Eduardo R.</strong></td>
-    <td align="center"><strong>Juan S.</strong></td>
     <td align="center"><strong>Azariel M.</strong></td>
   </tr>
   <tr>
     <td align="center">Front-End</td>
     <td align="center">Front-End</td>
-    <td align="center">Front-End</td>
-
   </tr>
   <tr>
     <td align="center">
@@ -143,14 +140,6 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
       </a>
       <a href="https://github.com/MrRedu">
-        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/juan-sincich-219310245/">
-        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
-      </a>
-      <a href="https://github.com/JuanSincich">
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
       </a>
     </td>
@@ -166,17 +155,14 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
   <tr>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/97706777?v=4" width="100"></td>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/86035143?v=4" width="100"></td>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/134566708?v=4" width="100"></td>
   </tr>
   <tr>
     <td align="center"><strong>Claudio M.</strong></td>
     <td align="center"><strong>Gabriel H.</strong></td>
-    <td align="center"><strong>Sandro B.</strong></td>
   </tr>
   <tr>
     <td align="center">Back-End</td>
     <td align="center">Back-End</td>
-    <td align="center">UX/UI</td>
   </tr>
   <tr>
     <td align="center">
@@ -194,15 +180,6 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
       <a href="https://github.com/G43R1EL">
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
       </a>
-    </td>
-        <td align="center">
-      <a href="https://www.linkedin.com/in/sandro-borga-065936246/">
-        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
-      </a>
-      <a href="https://github.com/Sandrooo0">
-        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
-      </a>
-    </td>
   </tr>
   <tr>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/73199952?v=4" width="100"></td>
