@@ -13,18 +13,10 @@ const mongoose = require("mongoose"); // Importar Mongoose
 const studentsController = {
   getSubjectsHomeworksAndNotif: async (req, res) => {
     try {
-      const studentId = req.user.id;
+      const student = req.user.id;
   
-      // Paso 1: Obtener la información del estudiante
-      const student = await userModel.findById(studentId).select("name lastname email").exec();
-  
-      if (!student) {
-        return res.status(404).json({ message: "Estudiante no encontrado." });
-      }
-  
-      // Paso 2: Obtener el grupo (comisión) del estudiante
-      const group = await groupModel
-        .findOne({ students: studentId })
+      // Paso 1: Obtener el grupo del estudiante y sus materias
+      const group = await groupModel.findOne({ students: student })
         .select("title description levelId")
         .populate({
           path: "levelId",
@@ -37,82 +29,62 @@ const studentsController = {
         .exec();
   
       if (!group) {
-        return res.status(404).json({ message: "No tienes grupos o comisiones asignadas." });
+        return res.status(404).json({ message: "No tienes grupos asignados." });
       }
   
-      // Paso 3: Obtener el nivel y materias del estudiante
       const level = group.levelId;
       const subjects = level.subjects;
   
-      // Paso 4: Buscar las tareas relacionadas con las materias del estudiante
+      // Paso 2: Buscar las tareas relacionadas con las materias del estudiante
       const homeworks = await homeworkModel
-        .find({ subjectId: { $in: subjects.map((subject) => subject._id) } })
-        .select("title description endDate subjectId")
+        .find({
+          subjectId: { $in: subjects.map((subject) => subject._id) },
+        })
+        .select("title description endDate subjectId") // Agregamos subjectId
         .exec();
   
-      // Paso 4: Buscar las tareas relacionadas con las materias del estudiante
+      // Paso 3: Buscar las notificaciones dirigidas al estudiante
       const notifications = await notificationModel
-        .find({ studentId: studentId })
-        .select("title message subjectId")
-        .populate("subjectId", "title description")
+        .find({ studentId: student }) // Solo buscar para este estudiante
+        .select("title message subjectId") // Seleccionamos los campos necesarios
+        .populate("subjectId", "title description") // Poblar datos de la materia
         .exec();
-        
-      console.log('Notifs del estudiante', notifications);
-      
-      // Paso 6: Formatear la respuesta
-      const formattedSubjects = subjects.map((subject) => {
-        // Filtrar tareas y notificaciones relacionadas con la materia
-        const subjectHomeworks = homeworks
-          .filter((hw) => hw.subjectId.toString() === subject._id.toString())
-          .map((hw) => ({
-            title: hw.title,
-            description: hw.description,
-            endDate: hw.endDate,
-          }));
-      
-        const subjectNotifications = notifications
-          .filter((notification) => notification.subjectId && notification.subjectId._id.toString() === subject._id.toString()) // ✅ Verificación
-          .map((notification) => ({
-            title: notification.title,
-            message: notification.message,
-          }));
-      
-        return {
+  
+      // 🔥 Revisar si los datos están correctos antes de enviarlos
+      console.log("Subjects:", subjects);
+      console.log("Homeworks:", homeworks);
+      console.log("Notifications:", notifications);
+  
+      // Paso 4: Estructurar la respuesta
+      res.status(200).json({
+        subjects: subjects.map((subject) => ({
           _id: subject._id,
           title: subject.title,
           description: subject.description,
-          homeworks: subjectHomeworks,
-          notifications: subjectNotifications,
-        };
+        })),
+        homeworks: homeworks.map((hw) => ({
+          _id: hw._id,
+          title: hw.title,
+          description: hw.description,
+          endDate: hw.endDate,
+          subjectId: hw.subjectId, // Para relacionarlo con subjects
+        })),
+        notifications: notifications.map((notification) => ({
+          _id: notification._id,
+          title: notification.title,
+          message: notification.message,
+          subject: notification.subjectId, // Ya poblado con title y description
+        })),
       });
-  
-      // Paso 7: Estructurar la respuesta final
-      const response = {
-        student: {
-          _id: student._id,
-          name: student.name,
-          lastname: student.lastname,
-          email: student.email,
-        },
-        group: {
-          _id: group._id,
-          title: group.title,
-          description: group.description,
-          level: {
-            _id: level._id,
-            title: level.title,
-            description: level.description,
-          },
-        },
-        subjects: formattedSubjects,
-      };
-  
-      res.status(200).json(response);
     } catch (err) {
       console.error("Error en la consulta:", err);
       res.status(500).json({ error: "Error al obtener los datos" });
-    }  
-  },
+    }
+  }
+  ,
+
+
+
   getStudentCourses: async (req, res) => {
     try {
       const studentId = req.user.id; // ID del estudiante autenticado
