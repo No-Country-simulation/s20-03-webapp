@@ -32,7 +32,7 @@ export default function DashboardPage() {
 
       try {
         const decoded: any = jwtDecode(token) // Decodificar token
-        console.log('Token decodificado:', decoded) // Verifica en la consola la estructura real
+        console.log('Token decodificado:', decoded.role) // Verifica en la consola la estructura real
         setRoleFromMyDatabase(decoded.role) // Extraer el rol del token
       } catch (error) {
         console.error('Error decodificando el token:', error)

@@ -13,7 +13,8 @@ export const TeacherDashboard = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Obtener datos de las materias, tareas y notificaciones
+// Obtener datos de las materias, tareas y notificaciones
+  const token = localStorage.getItem('token');
   useEffect(() => {
     const fetchTeacherData = async () => {
       try {
@@ -26,7 +27,6 @@ export const TeacherDashboard = () => {
         setLoading(false)
       }
     }
-
     fetchTeacherData()
   }, [])
 
@@ -58,7 +58,7 @@ export const TeacherDashboard = () => {
                     </div>
                     <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
                       <Clock className="h-4 w-4 text-muted-foreground" />
-                      <span>{subject.description} - {subject.course}</span>
+                      <span>{subject.description}</span>
                     </div>
                   </div>
                 ))
@@ -76,6 +76,7 @@ export const TeacherDashboard = () => {
               ) : Array.isArray(homeworks) && homeworks.length === 0 ? (
                 <p>No tienes tareas publicadas.</p>
               ) : (
+                //Checkear bien la iteracion, objeto completo es subjectsTeacher..
                 homeworks.map((homework, index) => (
                   <div key={index} className="rounded-lg border p-4">
                     <div className="flex items-center gap-2 text-sm font-medium">
