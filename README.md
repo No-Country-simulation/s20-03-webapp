@@ -55,6 +55,11 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ## 📸 **Imágenes de la Aplicación**  
 
+### 🔐 **Pantalla de Inicio de Sesión**  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/8f4aaddb-5fd7-4599-a55f-6939d062f492" width="30%">
+</div>
+
 ### 🧑‍🏫 **Rol Profesor**  
 <div align="center">
   <img src="https://github.com/user-attachments/assets/802c131b-e6e5-4ed6-9455-a42382b8719e" width="45%">
@@ -143,14 +148,17 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
   <tr>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/73679190?v=4" width="100"></td>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/141194661?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/97706777?v=4" width="100"></td>
   </tr>
   <tr>
     <td align="center"><strong>Eduardo R.</strong></td>
     <td align="center"><strong>Azariel M.</strong></td>
+    <td align="center"><strong>Claudio M.</strong></td>
   </tr>
   <tr>
     <td align="center">Front-End</td>
     <td align="center">Front-End</td>
+    <td align="center">Back-End</td>
   </tr>
   <tr>
     <td align="center">
@@ -169,20 +177,6 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
       </a>
     </td>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/97706777?v=4" width="100"></td>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/86035143?v=4" width="100"></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Claudio M.</strong></td>
-    <td align="center"><strong>Gabriel H.</strong></td>
-  </tr>
-  <tr>
-    <td align="center">Back-End</td>
-    <td align="center">Back-End</td>
-  </tr>
-  <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/claudio-castillo-dev/">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
@@ -191,6 +185,20 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
       </a>
     </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/86035143?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/73199952?v=4" width="100"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Gabriel H.</strong></td>
+    <td align="center"><strong>Adriana S.</strong></td>
+  </tr>
+  <tr>
+    <td align="center">Back-End</td>
+    <td align="center">Team Leader</td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/nghernandez/">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
@@ -198,27 +206,15 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
       <a href="https://github.com/G43R1EL">
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
       </a>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/73199952?v=4" width="100"></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Adriana S.</strong></td>
-  </tr>
-  <tr>
-    <td align="center">Team Leader</td>
-  </tr>
-  <tr>
+    </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/adriana-sanchez-mejias/">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
       </a>
       <a href="https://github.com/Adri-ESM">
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
-      </a>
-    </td>
-  </tr>
-</table>
+      </a
+
 
 <!--! Esto solo se verá cuando el repositorio esté en público -->
 <!-- <h3 align="center">Contribuyentes</h3>
