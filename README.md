@@ -55,20 +55,29 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ## 📸 **Imágenes de la Aplicación**  
 
-### 🧑‍🏫 **Rol Profesor**
-![📌 Resumen](https://github.com/user-attachments/assets/802c131b-e6e5-4ed6-9455-a42382b8719e)  
-![⚙️ Gestión de Comisión](https://github.com/user-attachments/assets/8d825bb3-dfee-43c8-96e3-b1c908d3d656)  
+### 🧑‍🏫 **Rol Profesor**  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/802c131b-e6e5-4ed6-9455-a42382b8719e" width="45%">
+  <img src="https://github.com/user-attachments/assets/8d825bb3-dfee-43c8-96e3-b1c908d3d656" width="45%">
+</div>
 
-### 🎓 **Rol Estudiante**
-![📌 Resumen](https://github.com/user-attachments/assets/8c7dc85f-0ad2-404f-9208-aa632a233d30)  
-![🔍 Detalles](https://github.com/user-attachments/assets/16b493a0-2678-431e-8c66-0c8ab358b918)  
+### 🎓 **Rol Estudiante**  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/8c7dc85f-0ad2-404f-9208-aa632a233d30" width="45%">
+  <img src="https://github.com/user-attachments/assets/16b493a0-2678-431e-8c66-0c8ab358b918" width="45%">
+</div>
 
-### 🏫 **Rol Administrador**
-![👥 Gestión de Usuarios](https://github.com/user-attachments/assets/cf2110a3-8fea-4b54-98c1-2fde0fca4979)  
-![⚖️ Gestión de Comisiones](https://github.com/user-attachments/assets/3d3c9e9d-2f36-4a42-a970-a6a2b7749069)  
+### 🏫 **Rol Administrador**  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/cf2110a3-8fea-4b54-98c1-2fde0fca4979" width="45%">
+  <img src="https://github.com/user-attachments/assets/3d3c9e9d-2f36-4a42-a970-a6a2b7749069" width="45%">
+</div>
 
-### 👨‍👩‍👧 **Rol Tutor/Padre**
-![📌 Resumen](https://github.com/user-attachments/assets/936cc991-d57a-4cc8-9121-7be7e0a1a5ae)  
+### 👨‍👩‍👧 **Rol Tutor/Padre**  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/936cc991-d57a-4cc8-9121-7be7e0a1a5ae" width="45%">
+</div>
+
 
 
 <hr>
