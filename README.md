@@ -78,7 +78,7 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ### Backend
 
-![Node.js][Node.js]![Express]![MongoDB][MongoDB]![TailwindCSS][JSONWebToken]
+![Node.js][Node.js]![Express]![MongoDB][MongoDB]![JSONWebToken][JSONWebToken]
 
 ### Frontend
 
