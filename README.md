@@ -48,10 +48,6 @@
 Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <br>
 [![Ver en Vídeo](https://img.shields.io/badge/Ver-Vídeo-white?style=for-the-badge&logo=github)](./wiki/media/video-explicativo.mp4)
 
-## **Demo**
-
-¡Explora <em>ClassRun</em> en este momento! <br>
-[![Ver ClassRun](https://img.shields.io/badge/Ver-ClassRun-ffffff?style=for-the-badge&logo=vercel)](https://google.com)
 
 ## 📸 **Imágenes de la Aplicación**  
 
@@ -84,13 +80,6 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 </div>
 
 
-
-<hr>
-
-<figure>
-  <img src="./wiki/media/4.png" alt="Merely riders become miss escape bind Dale." style="width:100%">
-  <figcaption>Merely riders become miss escape bind Dale.</figcaption>
-</figure>
 
 ## **Tecnologías**
 
@@ -141,6 +130,8 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
   <h2 style="font-size: 48px;">Equipo</h2>
   <img src="./frontend/public/logo-negative.svg" width="800px" alt="Logo">
 </div>
+
+<h3 align="center"><strong>Integrantes principales</strong></h3>
 
 <h3 align="center"><strong>Integrantes principales</strong></h3>
 
@@ -213,7 +204,11 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
       </a>
       <a href="https://github.com/Adri-ESM">
         <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
-      </a
+      </a>
+    </td>
+  </tr>
+</table>
+
 
 
 <!--! Esto solo se verá cuando el repositorio esté en público -->
