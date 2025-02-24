@@ -1,3 +1,4 @@
+// Configurations and imports
 const config = require('./config');
 const express = require('express');
 const cors = require('cors');
@@ -8,18 +9,32 @@ const authRouter = require('./routes/authRouter');
 const privateRouter = require('./routes/privateRouter');
 const dbConnection = require('./db/connection');
 
+// Connect to the database
 dbConnection();
+
+// Create the express app
 const app = express();
 
+// Middlewares
 app.use(cors(config.cors));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
+// Main routes
 app.use('/auth', authRouter);
 app.use('/private', authMiddleware, roleMiddleware, privateRouter);
 
+// Opción para manejar las solicitudes preflight
+app.options('*', (req, res) => {
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');  // Asegúrate que coincida con tu frontend
+    res.send();
+  });
+  
+// Start the server
 app.listen(config.server.port, () => {
     console.log(`Server is running on port ${config.server.port}`);
 });

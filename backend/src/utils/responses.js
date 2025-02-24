@@ -1,3 +1,4 @@
+// API responses
 const responses = {
     common: {
         success: { status: 200, message: 'Success' },
@@ -8,6 +9,8 @@ const responses = {
                 payload
             };
         },
+        conflict: { status: 409, message: 'Conflict' },
+        noContent: { status: 204, message: 'No Content' },
         notFound: { status: 404, message: 'Not Found' },
         badRequest: { status: 400, message: 'Bad Request' },
         internalServerError: { status: 500, message: 'Internal Server Error' },
@@ -19,4 +22,5 @@ const responses = {
     },
 };
 
+// Export the responses object
 module.exports = responses;

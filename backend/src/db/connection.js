@@ -1,6 +1,8 @@
+// Configurations and imports
 const config = require('../config');
 const mongoose = require('mongoose');
 
+// Connect to the database
 const dbConnection = async () => {
     try {
         await mongoose.connect(config.database.connectionString, config.database.options);
@@ -11,4 +13,5 @@ const dbConnection = async () => {
     }
 };
 
+// Export the function
 module.exports = dbConnection;

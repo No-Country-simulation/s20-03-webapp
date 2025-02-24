@@ -1,14 +1,9 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const Schema = require('mongoose').Schema;
 
-// Esquema para Subject (Materias)
 const subjectSchema = new Schema({
-    name: { type: String, required: true, unique: true },   // Nombre único de la materia
-    description: { type: String, required: false },        // Descripción opcional
-    teacher: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Profesor responsable
+    title: { type: String, required: true, index: true, unique: true },
+    teacherId: { type: Schema.Types.ObjectId, ref: 'User', required: false },
+    description: { type: String, required: false }
 }, { timestamps: true });
-
-// Crear el modelo Subject
-// const Subject = mongoose.model('Subject', subjectSchema);
 
 module.exports = subjectSchema;
