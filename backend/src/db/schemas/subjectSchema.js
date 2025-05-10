@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const subjectSchema = new Schema({
     name: { type: String, required: true, unique: true },   // Nombre único de la materia
     description: { type: String, required: false },        // Descripción opcional
-    teacher: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Profesor responsable
+    teacher: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}, // Profesor responsable
 }, { timestamps: true });
 
 // Crear el modelo Subject

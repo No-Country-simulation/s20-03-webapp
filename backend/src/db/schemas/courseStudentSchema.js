@@ -27,4 +27,4 @@ const courseStudentSchema = new Schema({
 // Crear índices compuestos para evitar duplicados no deseados
 courseStudentSchema.index({ studentId: 1, courseId: 1 }, { unique: true });
 
-module.exports = mongoose.model('CourseStudent', courseStudentSchema);
+module.exports = courseStudentSchema;

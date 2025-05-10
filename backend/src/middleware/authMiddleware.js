@@ -1,3 +1,4 @@
+const config = require('../config');
 const jwt = require('jsonwebtoken');
 const responses = require('../utils/responses');
 
@@ -7,8 +8,7 @@ const authMiddleware = async (req, res, next) => {
         return res.status(responses.auth.unauthorized.status).json(responses.auth.unauthorized);
     }
     try {
-        const decoded = jwt.verify(token, config.auth.secret);
-        req.user = decoded;
+        req.user = jwt.verify(token, config.auth.secret);
         next();
     } catch (error) {
         console.error(error);
