@@ -1,34 +1,22 @@
 /* eslint-disable unicorn/prefer-structured-clone */
-import { Section } from '@/components/atoms/section'
-import USERS_JSON from '@/data/users.json'
-import { User } from '@/types/user-type'
+'use client'
 
-import { columns } from './columns'
+import { columns, User } from './columns'
 import { DataTable } from './data-table'
+import { useUsers } from '@/hooks/useUser'
+import { ColumnDef } from '@tanstack/react-table'
 
-async function getData(): Promise<User[]> {
-  return JSON.parse(JSON.stringify(USERS_JSON))
-}
+export default function UsersPage() {
+  // 1 línea de código que hace todo el trabajo sucio
+  const { users, loading, error } = useUsers();
 
-export default async function UsersPage() {
-  const data = await getData()
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <Section>
-      <div className="mb-2 flex flex-wrap items-center justify-between space-y-2">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">
-            Lista de usuarios
-          </h2>
-          <p className="text-muted-foreground">
-            Gestione aquí sus usuarios y sus funciones.
-          </p>
-        </div>
-        {/* <UsersPrimaryButtons /> */}
-      </div>
-      <div className="-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-x-12 lg:space-y-0">
-        <DataTable columns={columns} data={data} />
-      </div>
-    </Section>
+    <div className="container mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4">Lista de Usuarios</h1>
+      <DataTable columns={columns as any} data={users} />
+    </div>
   )
 }

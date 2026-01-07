@@ -25,8 +25,8 @@ export const PendingEventsTeacher = ({ className, notifications}: PendingEventsP
                 <CardTitle className="text-lg">Mensajes Enviados</CardTitle>
             </CardHeader>
             <CardContent className="grid-rows-auto grid grid-cols-1 gap-4">
-                {notifications.map(notification => (
-                    <Card  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
+                {notifications.map((notification, index) => (
+                    <Card key={index} className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
                         <CardHeader className="pb-2">
                             <CardTitle className="text-base">{notification.title}</CardTitle>
                         </CardHeader>

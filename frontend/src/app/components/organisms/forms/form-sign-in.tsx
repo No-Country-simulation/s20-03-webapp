@@ -5,8 +5,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
-import axiosInstance from '@/lib/axiosInstance'; // Asegúrate de importar axiosInstance correctamente
-
+// import axiosInstance from '@/lib/axiosInstance'; // Si no lo usas aún, puedes dejarlo comentado o borrarlo
 
 import { Button } from '@/components/ui/button'
 import {
@@ -36,12 +35,23 @@ export const FormSignIn = () => {
   })
   const router = useRouter()
 
+  // --- NUEVA FUNCIÓN: Rellena los datos automáticamente ---
+  const handleDemoLogin = (role: 'student' | 'teacher') => {
+    // 1. Rellenamos los campos usando setValue de react-hook-form
+    form.setValue('username', role === 'student' ? 'student_demo' : 'teacher_demo');
+    form.setValue('password', '123456');
+    
+    // 2. Limpiamos errores previos si los hubiera
+    form.clearErrors();
+  };
+  // --------------------------------------------------------
+
   const onSubmit = form.handleSubmit(async (data) => {
-    axios.defaults.withCredentials = true; // this allows cookies globally
+    axios.defaults.withCredentials = true; 
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/auth/login', // Cambia a tu puerto local del backend
+        'http://localhost:5000/auth/login', 
         data,
       )
 
@@ -50,9 +60,12 @@ export const FormSignIn = () => {
         return
       }
       
-      localStorage.setItem('token', response.data.token); // Guarda el token en localStorage
+      localStorage.setItem('token', response.data.token);
+      
+      // Datos del user logueado como 'texto'
+      localStorage.setItem('user', JSON.stringify(response.data.user));
 
-      router.push('/dashboard') // Redirigir a dashboard
+      router.push('/dashboard') 
 
     } catch (error) {
       console.error('Error en el login:', error)
@@ -61,13 +74,48 @@ export const FormSignIn = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="w-full max-w-md space-y-6">
+      <form onSubmit={onSubmit} className="w-full max-w-md space-y-6 text-gray-700">
+        
+        {/* --- SECCIÓN NUEVA: BOTONES DEMO --- */}
+        <div className="space-y-4">
+            <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t border-gray-300" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-white px-2 text-gray-500">
+                        Accesos Demo (Portfolio)
+                    </span>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+                <Button 
+                    variant="outline" 
+                    type="button" // Importante: type="button" para que no envíe el formulario
+                    onClick={() => handleDemoLogin('student')}
+                    className="border-blue-200 text-blue-700 hover:bg-blue-50 hover:text-blue-800"
+                >
+                    🎓 Alumno
+                </Button>
+                <Button 
+                    variant="outline" 
+                    type="button"
+                    onClick={() => handleDemoLogin('teacher')}
+                    className="border-green-200 text-green-700 hover:bg-green-50 hover:text-green-800"
+                >
+                    👨‍🏫 Profesor
+                </Button>
+            </div>
+        </div>
+        {/* ----------------------------------- */}
+
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Usuario</FormLabel>
+              <FormLabel>Usuario o Email</FormLabel>
               <FormControl>
                 <Input placeholder="Tu usuario" {...field} />
               </FormControl>
@@ -84,9 +132,11 @@ export const FormSignIn = () => {
               <FormControl>
                 <Input type="password" placeholder="********" {...field} />
               </FormControl>
+              {/* Comenté la descripción para limpiar la UI, descomenta si la quieres
               <FormDescription>
-                La contraseña debe tener al menos 6 caracteres.
-              </FormDescription>
+                La contraseña debe tener al menos 6 caracteres.
+              </FormDescription> 
+              */}
               <FormMessage />
             </FormItem>
           )}

@@ -1,5 +1,8 @@
+'use client'
+
 import { Bell, ChevronsUpDown, LogOut, User } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation' // <--- Importante para redirigir
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -18,9 +21,6 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-import { useLogout } from '@/lib/auth' // ✅ Importa la función de logout
-
-
 export function DropDownUser({
   user,
 }: {
@@ -31,7 +31,22 @@ export function DropDownUser({
   }
 }) {
   const { isMobile } = useSidebar()
-  const logout = useLogout() // ✅ Usa la función de logout
+  const router = useRouter()
+
+  // --- 1. LÓGICA DE LOGOUT (Sin archivos externos) ---
+  const handleLogout = () => {
+    // Borramos todo rastro del usuario
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    // Redirigimos al login
+    router.push('/sign-in')
+  }
+
+  // --- 2. CÁLCULO DE INICIALES ---
+  // Si el nombre es "Pedro Pascal", toma "PE". Si no hay nombre, "US" (User)
+  const initials = user.name 
+    ? user.name.substring(0, 2).toUpperCase() 
+    : 'US'
 
   return (
     <SidebarMenu>
@@ -44,7 +59,8 @@ export function DropDownUser({
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">JD</AvatarFallback>
+                {/* Usamos las iniciales calculadas */}
+                <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">{user.name}</span>
@@ -63,7 +79,7 @@ export function DropDownUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">JD</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{user.name}</span>
@@ -76,20 +92,22 @@ export function DropDownUser({
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
                 <Link href="/dashboard/settings/">
-                  <User />
+                  <User className="mr-2 h-4 w-4" />
                   Perfil
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/dashboard/notifications/">
-                  <Bell />
+                  <Bell className="mr-2 h-4 w-4" />
                   Notificaciones
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onSelect={logout}> {/* ✅ Cerrar sesión */}
-              <LogOut />
+            
+            {/* Botón de Logout conectado a nuestra función */}
+            <DropdownMenuItem onClick={handleLogout} className="text-red-600 focus:text-red-600">
+              <LogOut className="mr-2 h-4 w-4" />
               Cerrar sesión
             </DropdownMenuItem>
           </DropdownMenuContent>

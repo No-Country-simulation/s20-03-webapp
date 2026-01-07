@@ -7,6 +7,7 @@ const authMiddleware = require('./middleware/authMiddleware');
 const roleMiddleware = require('./middleware/roleMiddleware');
 const authRouter = require('./routes/authRouter');
 const privateRouter = require('./routes/privateRouter');
+const userRouter = require('./routes/userRouter');
 const dbConnection = require('./db/connection');
 
 // Connect to the database
@@ -18,7 +19,9 @@ const app = express();
 // Middlewares
 // CORS configuration to allow requests from frontend
 const corsOptions = {
-  origin: "http://localhost:3000", // Frontend URL
+  origin: "*",
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // Allow credentials (cookies, etc.)
 };
 
@@ -31,6 +34,7 @@ app.use(express.static('public'));
 // Main routes
 app.use('/auth', authRouter);
 app.use('/private', authMiddleware, roleMiddleware, privateRouter);
+app.use('/api/users', userRouter);
 
 // Opción para manejar las solicitudes preflight
 // app.options('*', (req, res) => {
@@ -41,6 +45,9 @@ app.use('/private', authMiddleware, roleMiddleware, privateRouter);
 //   });
   
 // Start the server
-app.listen(5000, () => {
-    console.log(`Server is running on port 5000`);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen( PORT, () => {
+    console.log(`Server corriendo en el puerto {PORT}`);
 });

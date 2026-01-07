@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
 const gradeSchema = new Schema({
     date: { type: Date, default: Date.now }, // Fecha del registro
     course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course', required: true }, // Curso

@@ -27,8 +27,10 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+// Agregamos any en el segundo valor porque genera conflicto
+// Cuando un componente solo espera 1 parametro
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
+  columns: ColumnDef<TData, any>[]
   data: TData[]
 }
 
