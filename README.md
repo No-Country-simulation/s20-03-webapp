@@ -48,6 +48,76 @@
 Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <br>
 [![Ver en Vídeo](https://img.shields.io/badge/Ver-Vídeo-white?style=for-the-badge&logo=github)](./wiki/media/video-explicativo.mp4)
 
+## **Demo**
+
+¡Puedes probar la aplicación sin necesidad de registrarte! 
+En la pantalla de inicio de sesión hemos habilitado botones de **Acceso Rápido** para roles de prueba, o puedes usar las siguientes credenciales:
+
+| Rol | Usuario | Contraseña |
+| :--- | :--- | :--- |
+| 👨‍🎓 **Estudiante** | `student_demo` | `123456` |
+| 👨‍🏫 **Profesor** | `teacher_demo` | `123456` |
+
+
+## **Instalación y Despliegue Local**
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+### 1. Clonar el repositorio
+```bash
+git clone [https://github.com/No-Country-simulation/s20-03-webapp.git](https://github.com/No-Country-simulation/s20-03-webapp.git)
+cd s20-03-webapp
+```
+
+### 2. Configurar el Backend
+```bash
+cd backend
+npm install
+```
+
+#### Crea un archivo ``.env`` en la carpeta backend basándote en el archivo ``.env.template`` incluido. Debería verse así:
+
+```bash
+PORT=5000
+MONGO_URI=tu_string_de_conexion_atlas_o_local
+JWT_SECRET=palabra_secreta_para_desarrollo
+```
+
+### Inicializa la base de datos (Semilla de datos) y corre el servidor:
+
+#### Carga usuarios de prueba (Admin, Profesores y Alumnos)
+
+```bash
+npm run seed
+```
+
+#### Inicia el servidor en modo desarrollo
+```bash
+npm run dev
+```
+
+### 3. Configurar el Frontend
+#### Abre una nueva terminal y navega a la carpeta del frontend:
+```bash
+cd frontend
+npm install
+```
+
+#### Crea un archivo ``.env`` en la carpeta frontend basándote en el ``.env.template``. Asegúrate de que apunte a tu backend local:
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+#### Inicia la aplicación:
+
+```bash
+npm run dev
+```
+
+#### ¡Listo! Abre tu navegador en ``http://localhost:3000``.
+
+<br>
+<br>
 
 ## 📸 **Imágenes de la Aplicación**  
 
